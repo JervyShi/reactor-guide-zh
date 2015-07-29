@@ -1,29 +1,29 @@
-# What is Reactor ?
+# 什么是Reactor ?
 
-So you came to have a look at Reactor. Maybe you typed some keywords into your favorite search engine like Reactive, Spring+Reactive, Asynchronous+Java or just What the heck is Reactor?. In a nutshell Reactor is a lightweight, foundational library for the JVM that helps your service or application to efficiently and asynchronously pass messages.
+你想来看一看什么是Reactor。可能你会用你喜欢的搜索引擎来搜索这些关键字，比如 Reactive，Spring+Reactive，Asynchronous+Java或者仅仅是“What the heck is Reactor？”。简而言之，Reactor是一个轻量级的JVM基础库，它可以帮助我们构建的服务或应用高效而异步的传递消息。
 
 
-**What do you mean by "efficiently"?**
+**_高效_ 的含义是什么?**
 
-* Little to no memory garbage created just to pass a message from A to B.
-* Handle overflow when consumers are slower at processing messages than the producer is at producing them.
-* Provide for asynchronous flow--without blocking—if at all possible.
+* 一个消息从A传递到B产生的内存很小或者完全没有。
+* 当消费者的消费速度低于生产者生产速度而产生溢出时，必须尽快处理
+* 尽可能提供无阻塞的异步流
 
-From empirical studies (mostly #rage and #drunk tweets), we know that asynchronous programming is hard—especially when a platform like the JVM offers so many options. Reactor aims to be truly non-blocking for a majority of use cases and we offer an API that is measurably more efficient than relying on low-level primitives from the JDK’s java.util.concurrent library. Reactor provides alternatives to (and discourages the use of):
+据以往的经验看（主要通过 #rage 和 #drunk 的tweets），我们知道异步编程是困难的，特别是当一个平台提供大量的选项，比如JVM。Reactor的目标是在大部分场景下实现真正的无阻塞，并且提供一组比原生JDK中`java.util.concurrent`更高效的API。Reactor也提供替代方案（不鼓励使用）：
 
-* Blocking wait : e.g. Future.get()
+* 阻塞等待： 例如 `Future.get()`
 
-* Unsafe data access : e.g. ReentrantLock.lock()
+* 不安全的数据访问： 例如 `ReentrantLock.lock()`
 
-* Exception Bubbles : e.g. try…catch…finally
+* 异常块： 例如 `try…catch…finally`
 
-* Synchronization blocks : e.g. synchronized{ }
+* 同步阻塞： 例如 `synchronized{ }`
 
-* Wrapper Allocation (GC Pressure) : e.g. new Wrapper<T>(event)
+* Wrapper分配 (GC 压力)： 例如 `new Wrapper<T>(event)`
 
-Being non-blocking matters—especially when scaling message-passing becomes critical (10k msg/s, 100k msg/s 1M…). There is some theory behind this (see Amdahl’s Law), but we get bored and distracted easily, so let’s first appeal to common sense.
+消息传递以非阻塞的方式进行，在消息传递量极大时就变的更加关键（10k msg/s, 100k msg/s 1M…）。这里有背后的一些理论（[Amdahl’s Law](https://en.wikipedia.org/wiki/Amdahl%27s_law)），但我们容易对理论感到厌倦，容易分心，所以我们呼吁先了解一些常识。
 
-Let’s say you use a pure Executor approach:
+让我们假设你使用一个纯正的Executor方法：
 
 ```
 private ExecutorService  threadPool = Executors.newFixedThreadPool(8);
@@ -45,19 +45,19 @@ Future<T> f = threadPool.submit(t); (4)
 T result = f.get() (5)
 ```
 
-1. Allocate Callable—might lead to GC pressure.
-2. Synchronization will force stop-and-check for every thread.
-3. Potentially consumes slower than producer produces.
-4. Use a ThreadPool to pass the task to the target thread—definitely produces GC pressure via FutureTask.
-5. Block until callDatabase() replies.
+1. 分配回调方法--可能会导致gc压力。
+2. Synchronization将强制对每个线程实施停止检查。
+3. 可能存在消费者消费能力低于生产者生产能力的隐患。
+4. 使用线程池将task传递到目标线程--肯定会通过FutureTask给gc造成压力。
+5. 阻塞直至`callDatabase()`响应。
 
-In this simple example, it’s easy to point out why scale-up is very limited:
+在这个简单的例子中，很容易看出为什么扩展性是非常有限的：
 
-* Allocating objects might cause GC pauses, especially if the tasks stick around too long.
+* 不断分配的对象可能导致GC暂停，特别是当有一些任务耗时过长。
 
- * Every GC Pause will degrade performance globally.
+ * 每一次GC暂停都将在全局范围内降低性能。
 
-* A Queue is unbounded by default. Because of the database call, tasks will pile up.
+* 队列默认是无界的。由于对数据库的调用，任务将产生堆积。
 
  * A backlog is not really a Memory Leak but the side effects are just as nasty: more objects to scan during GC pauses; risk of losing important bits of data; etc…
 
