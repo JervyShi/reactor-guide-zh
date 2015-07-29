@@ -54,35 +54,23 @@ T result = f.get() (5)
 在这个简单的例子中，很容易看出为什么扩展性是非常有限的：
 
 * 不断分配的对象可能导致GC暂停，特别是当有一些任务耗时过长。
-
  * 每一次GC暂停都将在全局范围内降低性能。
-
 * 队列默认是无界的。由于对数据库的调用，任务将产生堆积。
+ * 积压不是真正意义上的内存泄漏，但是其副作用一样讨厌：GC暂停时需要对更多对象进行扫描；丢失数据重要字节的风险；等等...
+ * 经典链表队列分配节点时产生内存压力。数不胜数。
+* 使用阻塞方式应答请求时发生恶性循环。
+ * 阻塞方式应答请求导致生产者效率缓慢。实际上，因为需要提交更多任务时等待响应，流程变成了基本的同步方式。
+ * 同数据存储的通信异常将以不友好的形式传递到生产者，通过线程边界来分离工作，这使容错的协商变的比较容易。
 
- * A backlog is not really a Memory Leak but the side effects are just as nasty: more objects to scan during GC pauses; risk of losing important bits of data; etc…
+完全的、真正的非阻塞比较难以实现--特别是在拥有众多时髦名称的分布式系统世界中如微服务架构。然而，Reactor却没有妥协，它试图利用可用的最佳模式来使开发者不必觉得像是在写一个数学论文而仅仅是一个微服务(Nanoservice)。
 
- * Classic Linked Queues generate memory pressure by allocating Nodes. Lots of them.
+没有什么传播速度比光更快（除了八卦和病毒猫的视频），在某些情况下，延迟是现实世界中每个系统都必须关注的。为此：
 
-* A vicious cycle kicks-in when blocking replies are used.
+**Reactor提供一个框架，帮助你在你的应用中使用最小开销来解决延迟带来的副作用：**
 
- * Blocking replies will cause producer slow-down. In practice, the flow becomes basically synchronous since we have to wait for each reply before submitting more tasks.
-
- * Any Exception thrown during the conversation with the datastore will be passed in an uncontrolled fashion to the producer, negating any fault-tolerance normally available by segregating work around a Thread boundary.
-
-Being fully and truly non-blocking is hard to achieve—especially in a world of distributed systems which have fashionable monikers like Micro-Service Architectures. Reactor, however, makes few compromises and tries to leverage the best patterns available so the developer doesn’t have to feel like they’re writing a mathematical thesis rather than an asynchronous nanoservice.
-
-Nothing travels faster than light (besides gossip and viral cat videos) and latency is a real-world concern every system has to deal with at some point. To that end:
-
-**Reactor offers a framework that helps you mitigate nasty latency-induced side-effects in your application and do it with minimal overhead by:**
-
-* Leveraging some smart structures, we traded-off the allocation issue at runtime with pre-allocation at startup-time;
-
-* Main message-passing structures come bounded so we don’t pile up tasks infinitely;
-
-* Using popular patterns such as Reactive and Event-Driven Architectures, we offer non-blocking end-to-end flows including replies;
-
-* Implementing the new Reactive Streams Standard, to make bounded structures efficient by not requesting more than their current capacity;
-
-* Applied these concepts to IPC and provide non-blocking IO drivers that understand flow-control;
-
-* Expose a Functional API to help developers organize their code in a side-effect free way, which helps you determine where you are thread-safe and fault-tolerant.
+* 使用一些灵活的结构，我们通过在启动时预分配空间来避免分配问题；
+* 主要的消息传递结构有界，因而不会导致任务无限积压；
+* 利用流行的模式例如Reactive和事件驱动架构，我们提供一个包含应答的非阻塞的、端对端的流；
+* 实现了最新的[Reactive流](http://projectreactor.io/docs/reference/#reactivestreams)标准，通过不发送多于当前容量的请求来使受限的结构更有效率；
+* 使用这些概念到进程间通信，提供了理解控制流的非阻塞IO驱动；
+* 暴露函数式API来帮助开发者通过无副作用的方式来组织代码，也帮助你确定在什么场景下你是线程安全和具有容错性的。
