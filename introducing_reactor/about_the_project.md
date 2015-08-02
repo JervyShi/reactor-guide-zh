@@ -1,11 +1,10 @@
-# About the Project
+# 项目简介
 
-The project started in 2012, with a long internal incubation time. Reactor 1.x appeared in 2013. Reactor 1 has been deployed successfully by various organizations, both Open Source (e.g. Meltdown) and Commercial (e.g. Pivotal RTI). In 2014 we started collaborating on the emerging Reactive Streams Standard and started a massive re-engineering targeting April 2015 for version 2.0. The Reactive Streams Standard closed the last gap in our Dispatching mechanism: controlling how much in-flight data was hitting Thread boundaries.
+该项目起始于2012年，并经过较长时间的孵化。 Reactor 1.x 在2013年问世。此版本成功部署到各种组织，不仅有开源组织（如：Meltdown），还有商业机构（如：Pivotal RTI）。2014年我们合作开发实现新的“Reactive流标准”，并且在2015年4月开始版本2.0的大规模重构计划。Reactive流标准拉近了分发机制的鸿沟：控制多少线程传输多少数据。
 
-Parallel to that work we also decided to re-align some of our Event-Driven and Task Coordination API to the increasingly popular and documented Reactive Extensions.
+同时我们也决定重新设计一些事件驱动和任务协调类的API来应对日益增长且已经被记录的Reactive扩展。
 
-Reactor is sponsored by Pivotal where the two core committers are employed. Since Pivotal is also the home of the Spring Framework and many of our colleagues are core committers to the various Spring efforts, we both provide integration support from Reactor to Spring as well as support some important functionality of the Spring Framework like the STOMP broker relay in spring-messaging. That said, we don’t force anyone to adopt Spring just to use Reactor. We remain an embeddable toolkit "for the Reactive masses". In fact one of the goals of Reactor is to stay un-opinionated in the ways you solve asynchronous and functional problems.
+Reactor是被Pivotal赞助，并且有两名核心贡献者已经被Pivotal雇佣。由于Pivotal同时也是spring框架的东家，我们的很多同事也是不同spring项目的核心贡献者，所以我们也提供从Reactor到spring的集成同时也支持spring框架的一些重要功能如spring消息模块的STOMP代理。也就是说，我们不会强迫仅仅想使用Reactor的去适应spring。我们保留了独立大量的Reactive内嵌工具。事实上，Reactor在的目标之一就是在解决异步和功能性问题时保持中立。
 
-Reactor is Apache 2.0 licensed and available on GitHub.
-
+Reactor遵循[Apache 2.0 licensed](http://www.apache.org/licenses/LICENSE-2.0.html)，并且可以在[Github](https://github.com/reactor/reactor)上获取。
 
