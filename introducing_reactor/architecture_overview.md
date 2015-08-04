@@ -1,20 +1,20 @@
 # Architecture Overview
 
-![Figure 1. The main modules present in Reactor 2.0](http://projectreactor.io/docs/reference/images/modules.png)
-**Figure 1. The main modules present in Reactor 2.0**
+![图 1. Reactor 2.0主要模块](http://projectreactor.io/docs/reference/images/modules.png)
+**图 1. Reactor 2.0主要模块**
 
-The Reactor codebase is divided into several submodules to help you pick the ones that suit your needs while not burdening you with functionality you don’t need.
+Reactor的代码库是将整体功能拆分成多个子模块，你可以按需选择适合你需求的模块而不必将你不需要的模块集成在系统中。
 
-Following are some examples of how one might mix-and-match reactive technologies and Reactor modules to achieve your asynchronous goals:
+下面是一些混合组合reactive技术和使用Reactor模块实现异步的目标的例子：
 
-* Spring XD + Reactor-Net (Core/Stream) : Use Reactor as a Sink/Source IO driver.
-* Grails | Spring + Reactor-Stream (Core) : Use Stream and Promise for background Processing.
-* Spring Data + Reactor-Bus (Core) : Emit Database Events (Save/Delete/…).
-* Spring Integration Java DSL + Reactor Stream (Core) : Microbatch MessageChannel from Spring Integration.
+* Spring XD + Reactor-Net (Core/Stream) : 使用Reactor作为Sink/Source IO驱动。
+* Grails | Spring + Reactor-Stream (Core) : 使用Stream和Promise作为后台处理程序。
+* Spring Data + Reactor-Bus (Core) : 数据库Emit事件 (Save/Delete/…)。
+* Spring Integration Java DSL + Reactor Stream (Core) : 基于Spring Integration的Microbatch MessageChannel。
 * RxJavaReactiveStreams + RxJava + Reactor-Core : Combine rich composition with efficient asynchronous IO Processor
 * RxJavaReactiveStreams + RxJava + Reactor-Net (Core/Stream) : Compose input data with RxJava and gate with Async IO drivers.
 
-![Figure 2. A quick overview of how Reactor modules depend on one another](http://projectreactor.io/docs/reference/images/overview.png)
-**Figure 2. A quick overview of how Reactor modules depend on one another**
+![图 2. Reactor模块依赖预览图](http://projectreactor.io/docs/reference/images/overview.png)
+**图 2. Reactor模块依赖预览图**
 
 

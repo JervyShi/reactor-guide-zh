@@ -23,7 +23,7 @@
        * [RingBufferProcessor](reactor-core/ringbufferprocessor.md)
        * [RingBufferWorkProcessor](reactor-core/ringbufferworkprocessor.md)
    * [Codecs and Buffer](reactor-core/codecs_and_buffer)
-* [reactor-stream](reactor-stream/README)
+* [reactor-stream](reactor-stream/README.md)
 * [reactor-bus](reactor-bus/README)
 * [reactor-net](reactor-net/README)
 * [Extensions](extensions/README)
