@@ -1,13 +1,13 @@
 # Requirements
 
-* Reactor needs at minimum Java 7 to execute.
+* Reactor运行需要Java 7及以上版本。
 
- * But the full expressive potential of functional composition happens with Java 8 Lambdas.
+ * 但完整的功能组合表达式需要java8的lambdas支持。
 
- * As a fallback have a look at Spring, Clojure or Groovy extensions.
+ * 作为后备，支持spring、clojure和groovy的扩展。
 
-* Reactor runs at full capacity when the JVM supports Unsafe access (e.g., not the case for Android).
+* Reactor需要JVM支持Unsafe获取方式时才能发挥最强的能力(例如, ：Android不支持).
 
- * All RingBuffer based features will not work when Unsafe is missing.
+ * 如果不支持Unsafe访问时所有基于RingBuffer的特性将会消失。
 
-* Reactor is packaged as traditional JAR archives in Maven Central and can be pulled into any JVM project as a dependency using your preferred build tool.
+* Reactor被打包成JAR并存放于Maven中央仓库，你可以使用喜欢的构建工具来拉取这个依赖包。
