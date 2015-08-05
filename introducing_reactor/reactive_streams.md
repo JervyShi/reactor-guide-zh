@@ -1,33 +1,33 @@
 # Reactive Streams
 
-Reactive Streams is a new standard, adopted by different vendors and tech industrials including Netflix, Oracle, Pivotal or Typesafe with a target to include the specification into Java 9 and onwards.
+Reactive Streams是一个新的标准, 被不同的厂商和技术组织支持，包括Netflix、Oracle、 Pivotal 和Typesafe。 期望被Java 9或以后的版本收录。
 
-The aim of the standard is to provide (a)synchronous data sequences with a flow-control mechanism. The specification is fairly light and first targets the JVM. It comes with 4 Java Interfaces, a TCK and a handful of examples. It is quite straightforward to implement the 4 interfaces for the need, but the meat of the project is actually the behaviors verified by the TCK. A provider is qualified Reactive Streams Ready since it successfully passed the TCK for the implementing classes, which fortunately we did.
+该标准的目标是提供一种同步或者异步的具有控制流机制的数据序列。此标准十分轻量并且把第一目标放在JVM上。它提供4个Java接口，一个TCK和一些例子。这4个接口的实现非常直接，但这个项目的内涵是由TCK校验的行为。生产者是有资格实现Reactive Streams的，很幸运我们已经做了一些可以通过TCK校验的实现类来让生产者有资格实现Reactive Streams标准。
 
-![Figure 3. The Reactive Streams Contract](http://projectreactor.io/docs/reference/images/rs.png)
-**Figure 3. The Reactive Streams Contract**
+![图 3. Reactive Streams合约](http://projectreactor.io/docs/reference/images/rs.png)
+**图 3. Reactive Streams合约**
 
-**The Reactive Streams Interfaces**
+**Reactive Streams接口**
 
-* org.reactivestreams.Pubslisher: A source of data (from 0 to N signals where N can be unlimited). It optionally provides for 2 terminal events: error and completion.
-* org.reactivestreams.Subscriber: A consumer of a data sequence (from 0 to N signals where N can be unlimited). It receives a subscription on initialization to request how many data it wants to process next. The other callbacks interact with the data sequence signals: next (new message) and the optional completion/error.
-* org.reactivestreams.Subscription: A small tracker passed on initialization to the Subscriber. It controls how many data we are ready to consume and when do we want to stop consuming (cancel).
-* org.reactivestreams.Processor: A marker for components that are both Subscriber and Publisher!
+* org.reactivestreams.Pubslisher: 数据源 （从0到N，其中N可以是无限的）。 它提供了两个可选的结束事件：error和completion。
+* org.reactivestreams.Subscriber: 消费者数据序列（从0到N，其中N可以是无限的）。它这启动时获取一个subscription来确定接下来需要处理多少数据。与其它数据时序信号交互的其它回调有: next (新消息)和可选的completion/error。
+* org.reactivestreams.Subscription: 在初始化时传递给Subscriber的一个小追踪器。它控制有多少数据是我们准备去消费多少数据和什么时候停止消费（取消）。
+* org.reactivestreams.Processor: 既是Subscriber又是Publisher的一个组件标记。
 
-![Figure 4. The Reactive Streams publishing protocol
+![图 4. Reactive Streams发布协议
 ](http://projectreactor.io/docs/reference/images/signals.png)
-**Figure 4. The Reactive Streams publishing protocol**
+**图 4. Reactive Streams发布协议**
 
-**There are two ways to request data to a Publisher from a Subscriber, through the passed Subscription:**
+**通过传递Subscription，一个Subscriber从一个Publisher请求数据有两种方式：**
 
-* Unbounded: On Subscribe, just call Subscription#request(Long.MAX_VALUE).
-* Bounded: On Subscribe, keep a reference to Subscription and hit its request(long) method when the Subscriber is ready to process data.
- * Typically, Subscribers will request an initial set of data, or even 1 data on Subscribe
- * Then after onNext has been deemed successful (e.g. after Commit, Flush etc…), request more data
- * It is encouraged to use a linear number of requests. Try avoiding overlapping requests, e.g. requesting 10 more data every next signal.
+* 无限制的: 在订阅时, 仅调用`Subscription`的`request(Long.MAX_VALUE)`方法。
+* 有限制的: 在订阅时, 保留`Subscription`的引用，并且当`Subscriber`准备处理数据时调用`request(long)`方法。
+ * 通常情况下，在订阅时Subscribers将请求一组初始数据或者甚至1个数据。
+ * 然后在`onNext`已被认定调用成功后（例如：Commit后, Flush 后等等…)，请求更多数据。
+ * 建议使用线性数量的请求。尽量避免重复请求，例如： 每个下次请求时请求10个或者更多数据。
 
 
-Table 1. What are the artifacts that Reactor directly use so far:
+表 1. 目前为止，Reactor直接使用的Reactive Streams接口及实现：
 
 Reactive Streams|Reactor Module(s)|Implementation(s)|Description
 ----------------|-----------------|-----------------|-----------
@@ -36,5 +36,5 @@ Publisher|reactor-core, reactor-bus, reactor-stream, reactor-net|reactor.core.pr
 Subscriber|reactor-core, reactor-bus, reactor-stream, reactor-net|reactor.core.processor.*, reactor.bus.EventBus.*, reactor.rx.action.*, reactor.io.net.impl.*|In Core, our processor implement Subscriber. In Bus, we expose bus capacities with unbounded Publisher/Subscriber. In Stream, actions are Subscribers computing specific callbacks. In Net, our IO layer implements subscribers to handle writes, closes and flushes.
 Subscription|reactor-stream, reactor-net|reactor.rx.subscription.*, reactor.io.net.impl.*|In Stream, we offer optimized PushSubscriptions and buffering-ready ReactiveSubscription. In Net, our Async IO reader-side use custom Subscriptions to implement backpressure.
 
-We have worked with the standard since the inception of Reactor 2 and progressed in our journey until the 1.0.0 was about to release. It is now available on Maven Central and other popular mirrors. You will also find it as a transitive dependency to reactor-core.
+从reactor 2启动时我们就一直遵循这个标准，并且随着标准的改变而改变直到1.0.0正式版准备发布。现在可以通过maven中央库及其它流行的镜像上可以找到该标准，你将发现它依赖reactor-core模块作为过度。
 
