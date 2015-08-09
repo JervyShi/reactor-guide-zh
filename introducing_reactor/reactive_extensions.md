@@ -1,23 +1,23 @@
-# Reactive Extensions
+# Reactive扩展
 
-Reactive Extensions, or more commonly Rx, are a set of well-defined Functional APIs extending the Observer pattern to an epic scale.
+Reactive扩展或者说Rx，是一组定义完备的功能性API，这组API扩展观察者模式到了史诗级的程度。
 
-**Rx patterns support implementing Reactive data sequences handling with a few design keys:**
+**Rx模式使用极少的设计关键字来实现对Reactive数据序列的处理：**
 
-* Abstract the time/latency away with a callback chain: only called when data is available
-* Abstract the threading model away: Synchronous or Asynchronous it is just an Observable / Stream we deal with
-* Control error-passing and terminations: error and complete signals in addition to the data payload signal are passed to the chain
-* Solve multiple scatter-aggregation and other composition issues in various predefined API.
+* 使用回调链来抽象实时及延迟：当数据可用是调用。
+* 抽象不在使用的线程模型： 同步或者异步仅仅是我们处理的Observable/Stream。
+* 控制错误传递和停止：错误和完成信号和数据负载信号被传递到链中。
+* 在各种预先定义的API中解决了多个扩展-聚合和其他问题。
 
-The standard implementation of Reactive Extensions in the JVM is RxJava. It provides a powerful functional API and ports mostly all the concept over from the original Microsoft library.
+在JVM中Reactive扩展的标准实现是RxJava。它提供了一组功能丰富的API和开发实现了几乎全部的Mricrosoft原生库的概念。
 
-Reactor 2 provides a specific module implementing a subset of the documented Reactive Extensions and on a very few occasion adapting the name to match our specific behavior. This focused approach around data-centric issues (microbatching, composition…) is depending on Reactor Functional units, Dispatchers and the Reactive Streams contract. We encourage users who need the full flavor of Reactive Extensions to try out RxJava and bridge with us. In the end the user can benefit from powerful asynchronous and IO capacities provided by Reactor while composing with the complete RxJava ecosystem.
+Reactor 2 提供了一个特定模块实现了Reactive扩展的一部分功能。建议需要使用Reactive stream全部功能的用户使用RxJava。最后，当组合完整的RxJava系统时，用户可以从Reactor提供的强大的异步和IO的中获益。
 
 > Some operations, behaviors, and the immediate understanding of Reactive Streams are still unique to Reactor as of now and we will try to flesh out the unique features in the appropriate section.
 
 > Async IO capabilities are also depending on Stream Capacity for backpressure and auto-flush options.
 
-**Table 2. Misalignments between Rx and Reactor Streams**
+**Table 2. Rx和Reactor Streams的对比**
 
 rx|reactor-stream|Comment
 --|--------------|-------
