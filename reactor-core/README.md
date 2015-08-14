@@ -1,55 +1,55 @@
-# reactor-core
+# reactor核心
 
 > You should never do your asynchronous work alone.
 
 > — Jon Brisbin
 
-> After writing Reactor 1
+> 完成Reactor 1后写到
 
 > You should never do your asynchronous work alone.
 
 > — Stephane Maldini
 
-> After writing Reactor 2
+> 完成Reactor 2后写到
 
-Head first with a Groovy example of some Core work
+首先，我们来用一个Groovy的示例来展示Core模块的功能：
 
 ```
-//Initialize context and get default dispatcher
+//初始化上下文，获取默认dispather
 Environment.initialize()
 
-//RingBufferDispatcher with 8192 slots by default
+//使用默认8192 slots的RingBufferDispatcher
 def dispatcher = Environment.sharedDispatcher()
 
-//Create a callback
+//创建一个回调
 Consumer<Integer> c = { data ->
         println "some data arrived: $data"
 }
 
-//Create an error callback
+//创建一个异常回调
 Consumer<Throwable> errorHandler = { it.printStackTrace }
 
-//Dispatch data asynchronously
+//异步调度数据
 dispatcher.dispatch(1234, c, errorHandler)
 
 Environment.terminate()
 ```
 
-A second taster, the Reactive Streams way
+然后，用Reactive Streams的方式来实现
 
 ```
-//standalone async processor
+//独立的异步processor
 def processor = RingBufferProcessor.<Integer>create()
 
-//send data, will be kept safe until a subscriber attaches to the processor
+//发送数据，将会保持数据安全直到subscriber连接到processor为止
 processor.onNext(1234)
 processor.onNext(5678)
 
-//consume integer data
+//消费整型数据
 processor.subscribe(new Subscriber<Integer>(){
 
   void onSubscribe(Subscription s){
-    //unbounded subscriber
+    //无界限的subscriber
     s.request Long.MAX
   }
 
@@ -66,7 +66,7 @@ processor.subscribe(new Subscriber<Integer>(){
   }
 }
 
-//Shutdown internal thread and call complete
+//关闭内部线程，调用complete函数
 processor.onComplete()
 ```
 
