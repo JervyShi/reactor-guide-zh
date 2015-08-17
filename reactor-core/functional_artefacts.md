@@ -1,5 +1,5 @@
-# Functional Artefacts
+# 函数式模块
 
-Functional reusable blocks are core and mostly a required artefact to use as soon as you get into Reactor. [1] So what’s cool about Functional Programming ? One of the core ideas is to start treating executable code as a data like another. [2] To some extent it is akin to the concept of Closures or Anonymous Functions, where business logic can be decided by the original caller. It also avoids loads of imperative IF/SWITCH blocks and makes a clear separation of concerns: each block achieves one purpose and doesn’t need to share anything.
+重用是函数式模块的核心，也是一个你接触Reactor会用到的一个必要模块。[1]那么什么是函数式编程最酷的功能呢？其中一个核心观念就是把可执行代码当作数据来看待。[2]在一定程度上它类似于闭包或匿名函数，此时业务逻辑由原始调用方决定。它还避免了过量的IF/SWITCH块，并且这种分离使关注点更清晰：每个模块完成一个功能且不需要共享任何东西。
 
 
