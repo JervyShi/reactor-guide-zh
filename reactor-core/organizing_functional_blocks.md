@@ -1,13 +1,13 @@
-# Organizing Functional Blocks
+# 组织功能模块
 
-Every Functional component gives the explicit intent of its general mission:
+每个功能模块为它常规任务提供的明确意图：
 
-* Consumer: simple callback - fire-and-forget
-* BiConsumer: simple callback with two arguments (often used in sequence comparaisons, e.g. previous and next arguments)
-* Function: transforming logic - request/reply
-* BiFunction: transforming with two arguments (often used in accumulators, comparing previous and next arguments then returning a new value)
-* Supplier: factory logic - polling
-* Predicate: testing logic - filtering
+* Consumer: 简单回调 - 一劳永逸
+* BiConsumer: 包含两个入参的简单回调（通常用于序列比较，例如：前一个和后一个参数）
+* Function: 转换逻辑 - 输入/输出
+* BiFunction: 两个参数的转换逻辑（通常用在累加器，比较前一个和下一个参数，返回一个新的值。）
+* Supplier: 工厂逻辑 - 轮询
+* Predicate: 测试逻辑 - 过滤
 
 > *We consider Publisher and Subscriber interfaces also functional blocks, dare we say Reactive Functional Blocks. Nevertheless they are the basic components used everywhere around in Reactor and Beyond. Stream API will usually accept reactor.fn arguments to create on your behalf the appropriate Subscribers.*
 
