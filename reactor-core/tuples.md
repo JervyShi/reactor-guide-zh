@@ -1,8 +1,8 @@
-# Tuples
+# 元组（Tuples）
 
-You might have noticed these interfaces are strongly typed with Generic support and a small fixed number of argument. So how do you pass more than 1 or 2 arguments ? The answer is in one class : Tuple. Tuples are like typed CSV lines in a single object instance, you want them in functional programming to keep both the type safety and a variable number of arguments.
+你可能会注意到那些接口，它们对输入参数和比较少的固定数量的参数的泛型有很好的支持。那么如何传递超过1个或者两个的入参呢？答案是使用Tuple。Tuple类似与CSV中每行指定一个对象的实例，你需要它们在函数式编程中实现即保持类型安全又可以使用多个数量的参数。
 
-Let’s take the previous example and try replacing the double-argument BiConsumer with a single-argument Consumer:
+让我们看下之前的例子，并且尝试用单个参数的Consumer来替代两个参数的BiConsumer：
 
 ```
 Consumer<Tuple2<Consumer<String>, String>> biConsumer = tuple -> {
@@ -20,6 +20,5 @@ biConsumer.accept(
 );
 ```
 
-> *Tuples involve a bit more allocation, and that’s why the common use cases of comparison or keyed signals are handled with Bi** artifacts directly.*
-
+> *Tuple需要分配更多的内存空间，因此在需要比较和键值对的场景下推荐直接使用Bi** 组件。*
 
