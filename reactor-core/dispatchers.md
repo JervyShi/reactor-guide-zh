@@ -1,10 +1,12 @@
-# Dispatchers
-Dispatchers are there since Reactor 1, they abstract away the mean of message-passing in a common contract similar to the Java Executor. In fact they do extend Executor!
+# Dispatcher
 
-The Dispatcher contract offers a strongly typed way to pass a signal with its Data and Error Consumers executed (a)synchronously. This way we fix a first issue faced by classic Executors, the error isolation. In effect instead of interrupting the assigned resource, the Error Consumer will be invoked. If none has been provided it will try to find an existing Environment and use its assigned errorJournalConsumer.
+从Reactor 1时就已经有Dispatcher了。Dispatcher通常抽象消息传递的方法，类似Java中的Executer。事实上，Dispathcer继承自Executor！
 
-A second unique feature offered by the asynchronous Dispatcher is to allow for reentrant dispatching by using a Tail Recurse strategy. Tail Recursion is used when dispatch detects the dispatcher classLoader has been assigned to the running thread and if so, enqueue the task to be executed when the current consumer returns.
+Dispatcher提供一种强类型的方式来传递数据和错误给同步或异步执行的消费者。我们在这方面克服了一个传统Executor首要面对的问题：错误隔离。实际上，Error Consumer将会被调用来代替传统的分配资源中断。如果在当前Environment中没有任何consumer被分配，将使用默认的errorJournalConsumer来处理异常。
 
+异步的Dispatcher带来的第二个独立特性是允许使用尾递归策略来重复调度。尾部递归的应用场景是分发器发现Dispatcher的classLoader已经分配到正在运行的线程，这时，当当前消费者返回时将要执行的task放入到队列中。
+
+使用同步和多线程dispather，例如下列Groovy Spock测试：
 Using a synchronous and a multi-threaded dispatcher like in this Groovy Spock test:
 
 ```
@@ -42,9 +44,9 @@ then: "the task thread should be different when the current thread"
   taskThread != currentThread
 ```
 
-> Like the Executor they will miss a feature that we will add along the 2.x release line: Reactive Streams protocol. They are ones of the few leftovers in Reactor that are not directly tied to the Reactive Streams standard directly. However, they can be combined with the Reactor Stream to quickly fix that as we will explore in the Stream Section. Essentially that means a user can directly hit them until they eventually and temporarely block since the capacity might be bounded by most Dispatcher implementations.
+> 就像Executor一样，他们将缺少一个我们将在2.x release版本线中增加的特性：Reactive Stream协议。这时在Reactor中仅有几个未完成事项中的一个未完成事项——没有将Reactive stream标准直接绑定到Reactor中。然后，你可以在Stream章节部分找到快速结合Reactor Stream的方法。
 
-Table 3. An introduction to the Dispatcher family
+Table 3. Dispatcher家族的介绍
 
 Dispatcher|From Environment|Description|Strengths|Weaknesses
 ----------|----------------|-----------|---------|----------
