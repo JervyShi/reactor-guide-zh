@@ -1,11 +1,11 @@
 # DispatcherSupplier
-You may have noticed some Dispatchers are single-threaded, especially the RingBufferDispatcher and MpscDispatcher. Going further, refering to the Reactive Stream specification, the Subscriber/Processor implementation should not allow for concurrent notifications. This impacts Reactor Streams in particular, and trying to use Stream.dispatchOn(Dispatcher) with a Dispatcher that leaves the door open to concurrent signals will fail explicitely.
+你可能注意到了一些Dispatcher是单线程的，特别是RingBufferDispatcher和MpscDispatcher。深入来说，根据Reactive Stream的说明，Subscriber和Processor的实现是不允许并发通知的。这一点对Reactor Stream有极其特殊的影响，试图用Stream.dispatchOn(Dispatcher)与Dispatcher来关闭可使用并发的大门。
 
-There is however a way to workaround that limitation by using pools of Dispatcher or DispatcherSupplier. In effect, as a Supplier factory, the indirection offered by Supplier.get() to retrieve a Dispatcher allow for interesting pooling strategy : RoundRobin, Least-Used…​
+然而还有一种方式可以解决这种限制，使用Dispatcher pool或者DispatcherSupplier。实际上作为一个Supplier工厂，Supplier.get()方法根据有趣的pooling(XX：池/共享)策略：轮询、最少使用。。等间接提供一个Dispatcher。
 
-Environment offers static helpers to create, and eventually register against the current active Environment pools of Dispatchers: groups of RoundRobin returned Dispatchers. Once ready, suppliers will provide for a controlled number of Dispatchers.
+Environment提供一个静态帮助类来创建并注册到当前活跃的Environment和Dispatcher pool：一组轮询返回的Dispatcher集合。一旦就绪，supplier就会提供一组可控数量的Dispatcher集合。
 
-As usual with Dispatchers, Environment is the one-stop shop to manage them:
+不用与Dispatcher集合，Environment提供一站式的管理服务：
 
 ```
 Environment.initialize();
