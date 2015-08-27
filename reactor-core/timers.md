@@ -1,11 +1,11 @@
 # Timers
-Dispatchers compute incoming tasks as soon as possible. Timers however come with periodic and one-time scheduling API. Reactor Core offers an **HashWheelTimer** by default and it is automatically bound to any new Environment. HashWheelTimers are perfect for dealing with massive concurrent in-memory scheduled tasks, it’s a powerful alternative to Java **TaskScheduler**.
+Dispatcher尽可能快的计算接收到的任务。Timers提供周期性或者一次性的调度API。Reactor Core提供的默认定时器是`HashWheelTimer`，它会自动绑定到任何新的Environment中。`HashWheelTimer`对处理大量的、并发的、内存调度任务有巨大的优势，它是java TaskScheduler的一个强大的替代品。
 
-> While it is suited for windowing (mini tasks periods under the minute order of magnitude), it is not a resilient scheduler since all tasks are lost when the application shutdowns.
+> HashWheelTimer是适合一些小周期任务，这不是一个持久化的调度器，应用关闭时会丢失所有任务。
 
-> Timers will receive some attention along the next releases, e.g. we would love to add persisting/shared scheduling support with Redis. Please voice your opinion or propose any contribution here!
+> 下个Release版本Timer将会有一些值得关注的更新，例如：我们想要增加基于Redis的可持久化/共享的调度支持。请在这里给出您的任何意见或建议！
 
-A simple timer creation as seen in one of our Groovy Spock test:
+在我们的Groovy Spock测试中创建一个简单的Timer示例：
 
 ```
 import reactor.fn.timer.Timer
