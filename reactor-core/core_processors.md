@@ -1,15 +1,15 @@
 # Core Processors
-Core Processors are here to do a more focused job than Dispatchers: Computing asynchronous tasks with back-pressure support.
+Core Processor用来做比Dispatcher更集中的任务：支持背压计算异步任务。
 
-They also play nicely with other Reactive Streams vendors since they directly implement the org.reactivestreams.Processor interface. Remember that a Processor is both a Subscriber AND a Publisher, so you can insert it in a Reactive Streams chain where you wish (source, processing, sink).
+它们可以与其他Reactive Stream提供者一起很好的工作，因为它是`org.reactivestreams.Processor`接口的直接实现。请记住Processor既是Subscriber也是Publisher，所以你可以把它插入Reactive Stream链的任何位置（source, processing, sink）。
 
-> The specification doesn’t recommend specifically to hit Processor.onNext(d) directly. We do offer that support but the backpressure will of course not be propagated except with eventual blocking. One can explicitely use an anonymous Subscription to pass first to a Processor using Processor.onSubscribe to get the backpressure feedback within the implemented request method.
+> 该规范不建议直接调用`Processor.onNext(d)`。我们也提供了支持，但是背压除非最终被阻断当然也不会继续传播。你可以显示的使用匿名订阅传递得到背压反馈，通过使用`Processor.onSubscribe`的Processor。
 
-> OnNext must be serialized e.g. coming from a single thread at a time (no concurrent onXXX signal is allowed). However Reactor supports it if the Processors are created using the conventioned Processor.share() method, e.g. RingBufferProcessor.share(). This decision must be taken at creation time in order to use the right coordination logic within the implementation, so choose wisely: is this going to be a a standard publishing sequence (no concurrent) or is this going to be hit by multiple threads ?
+> 同一时间来自单个线程的OnNext必须被序列化（不允许并发的调用onXXX）。然而如果使用协定的`Processor.share()`方法，例如：`RingBufferProcessor.share()`，Reactor也支持并发。这种决定必须耗费大量时间来使用正确的协调逻辑用于实现，所以做明智的选择：是否使用不支持并发作为标准的生产队列还是要被多线程伤得体无全肤？
 
-***Reactor makes a single exception to the standard when it comes to the specific XXXX Work Processor artefacts:***
+***当需要特别的 XXXX Work Processor功能时，Reactor有一个标准之外的例外：***
 
-* Usually Reactive Streams Processor will dispatch the same sequence data asynchronously to all Subscribers subscribed at a given time T. It’s akin to **Publish/Subscribe** pattern.
-* **WorkProcessors** will distribute the data to its convenience, making the most of each Subscriber. That means Subscribers at a given time T will always see distinct data. It’s akin to **WorkQueue** pattern.
+* Reactive Streams Processor通常会在给定时间内异步的分配同样连续的数据给所有的订阅的Subscriber。类似**生产者/消费者**模型。
+* **WorkProcessors**会根据它的便利性分发数据给大部分独立的Subscriber。这就是说Subscriber在指定时间内一直可以看到不同的数据。类似**工作队列**模型
 
-We expect to increase our collection of Core Processors over the 2.x release line.
+我们希望在2.x release中增加我们的Core Processor集合。
