@@ -1,4 +1,4 @@
-# Architecture Overview
+# 架构总览
 
 ![图 1. Reactor 2.0主要模块](http://projectreactor.io/docs/reference/images/modules.png)
 **图 1. Reactor 2.0主要模块**

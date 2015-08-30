@@ -1,4 +1,4 @@
-# Core Processors
+# 核心Processor
 Core Processor用来做比Dispatcher更集中的任务：支持背压计算异步任务。
 
 它们可以与其他Reactive Stream提供者一起很好的工作，因为它是`org.reactivestreams.Processor`接口的直接实现。请记住Processor既是Subscriber也是Publisher，所以你可以把它插入Reactive Stream链的任何位置（source, processing, sink）。

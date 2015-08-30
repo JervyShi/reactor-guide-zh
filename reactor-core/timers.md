@@ -1,4 +1,4 @@
-# Timers
+# 定时器
 Dispatcher尽可能快的计算接收到的任务。Timers提供周期性或者一次性的调度API。Reactor Core提供的默认定时器是`HashWheelTimer`，它会自动绑定到任何新的Environment中。`HashWheelTimer`对处理大量的、并发的、内存调度任务有巨大的优势，它是java TaskScheduler的一个强大的替代品。
 
 > HashWheelTimer是适合一些小周期任务，这不是一个持久化的调度器，应用关闭时会丢失所有任务。

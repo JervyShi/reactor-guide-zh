@@ -1,4 +1,4 @@
-# Requirements
+# 使用要求
 
 * Reactor运行需要Java 7及以上版本。
 
