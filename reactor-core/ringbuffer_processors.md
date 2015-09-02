@@ -2,8 +2,11 @@
 
 基于RingBuffer的Reactive Stream Processor优点如下：
 
+* 高吞吐量
 * Über high throughput
+* 重放最近未消费的数据
 * Replay from the latest not consumed data
+ * 如果没有Subscriber监听，数据不会丢失（不像Reactor Stream中的Broadcaster会丢失数据） 
  * If no Subscriber is listening, data won’t be lost (unlike Broadcaster from Reactor-Stream).
  * If a Subscriber cancels during processing, signal will be safely replayed, it actually works nicely with the RingBufferWorkProcessor
 * Smart back-pressure, it allows for a bounded size anytime and the subscribers have the responsibility to consume and request more data
