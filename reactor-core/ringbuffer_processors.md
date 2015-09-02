@@ -10,7 +10,7 @@
 * 传播的背压，因为它是一个Processor，它可以通过订阅方式传递消息。
 * Processer拥有多线程处理出入的能力
 
-**Actually RingBuffer*Processor are like typed MicroMessageBroker !**
+**其实RingBuffer*Processor更类似一个典型的MicroMessageBroker !**
 
 Their only drawbacks is they might be costly at runtime to create and they can’t be shared as easily as its cousin RingBufferDispatcher. That makes them suited for High-Throughput Pre-defined Data Pipelines.
 
