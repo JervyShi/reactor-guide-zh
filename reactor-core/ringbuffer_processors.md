@@ -9,7 +9,6 @@
 * 灵活的背压，它允许任何时间有限数量数据的背压，Subscriber有能力消费掉并且请求更多数据
 * 传播的背压，因为它是一个Processor，它可以通过订阅方式传递消息。
 * Processer拥有多线程出入的能力
-* Multi-threaded inbound/outbound Processor capabilities
 
 **Actually RingBuffer*Processor are like typed MicroMessageBroker !**
 
