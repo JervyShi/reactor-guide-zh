@@ -1,5 +1,6 @@
 # RingBuffer Processors
-RingBuffer-based Reactive Streams Processors are good for a bunch of #awesome reasons:
+
+基于RingBuffer的Reactive Stream Processor优点如下：
 
 * Über high throughput
 * Replay from the latest not consumed data
