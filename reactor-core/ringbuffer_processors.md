@@ -12,5 +12,6 @@
 
 **其实RingBuffer*Processor更类似一个典型的MicroMessageBroker !**
 
+它们唯一的缺点是运行时创建开销较大，它们不能像它们的表兄`RingBufferDispatcher`一样易于分享。
 Their only drawbacks is they might be costly at runtime to create and they can’t be shared as easily as its cousin RingBufferDispatcher. That makes them suited for High-Throughput Pre-defined Data Pipelines.
 
