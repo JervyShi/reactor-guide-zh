@@ -8,6 +8,7 @@
 * Replay from the latest not consumed data
  * 如果没有Subscriber监听，数据不会丢失（不像Reactor Stream中的Broadcaster会丢失数据） 
  * If no Subscriber is listening, data won’t be lost (unlike Broadcaster from Reactor-Stream).
+ * 
  * If a Subscriber cancels during processing, signal will be safely replayed, it actually works nicely with the RingBufferWorkProcessor
 * Smart back-pressure, it allows for a bounded size anytime and the subscribers have the responsibility to consume and request more data
 * Propagated back-pressure, since it’s a Processor, it can be subscribed to pass the information along
