@@ -4,7 +4,6 @@
 
 * 高吞吐量
 * 回放最近未消费的数据
-* Replay from the latest not consumed data
  * 如果没有Subscriber监听，数据不会丢失（不像Reactor Stream中的Broadcaster会丢失数据）。
  * If no Subscriber is listening, data won’t be lost (unlike Broadcaster from Reactor-Stream).
  * 如果Subscriber在处理中被中断，信号会被安全的回放，实际上它能在`RingBufferWorkProcessor`上很好的工作。
