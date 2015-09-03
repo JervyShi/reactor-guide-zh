@@ -1,6 +1,10 @@
 # RingBufferProcessor
 Reactor的`RingBufferProcessor`组件本质上是一个改造过的适应Reactive Streams API的[Disruptor RingBuffer](https://github.com/LMAX-Exchange/disruptor)。设计目的是尽可能和原生效率一样高。使用场景：你需要分发任务到其他线程，并使用极少的资源和极高的吞吐量而且可以在你的工作流中管理背压。
 
+> 我使用`RingBufferProcessor`来计算异步的远程调用各种输出：AMQP，SSD存储和内存存储，可变的延迟几乎全部被`Processor`消灭，我们每秒百万消息的数据源从未阻塞。
+> - 开心的Reactor使用者
+> `RingBufferProcessor`用例
+
 > I use RingBufferProcessor to compute various output remote calls asynchronously: AMQP, SSD storage and an In-Memory store, the variable latency is totally eaten by the Processor and our Million-Message-Per-Sec Datasource never blocks !
 > — Happy Reactor user
 > Use Case for RingBufferProcessor
