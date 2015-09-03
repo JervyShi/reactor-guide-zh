@@ -7,8 +7,8 @@ Reactor的`RingBufferProcessor`组件本质上是一个改造过的适应Reactiv
 
 > `RingBufferProcessor`的使用案例
 
-![Figure 7. RingBufferProcessor at a given time T, with 2 Subscribers, all consuming the same sequence, but delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.](http://projectreactor.io/docs/reference/images/RBP.png)
-**Figure 7. RingBufferProcessor at a given time T, with 2 Subscribers, all consuming the same sequence, but delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.**
+![图7. 在给力时间内的RingBufferProcessor，拥有两个消费相同队列的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。](http://projectreactor.io/docs/reference/images/RBP.png)
+**图7. 在给力时间内的`RingBufferProcessor`，拥有两个消费相同队列的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。**
 
 To create a RingBufferProcessor, you use static create helper methods.
 
