@@ -44,6 +44,5 @@ Thread[test-2,5,main] data=3
 Thread[test-3,5,main] data=3```
 
 每个线程都能接收到传递给Processor的所有数据，每个线程都按照数据传入的顺序接收到这些数据，因为内部使用RingBuffer来管理这些数据。
-Each thread is receiving all values passed into the Processor and each thread gets the values in an ordered way since it’s using the RingBuffer internally to manage the slots available to publish values.
 
 > RingBufferProcessor can replay missed signals -0 subscribers- to any future subscribers. That will force a processor to wait onNext() if a full buffer is not being drained by a subscriber. From the last sequence acknowledged by a subsUp to the size of the configured ringbuffer will be kept ready to be replayed for every new subscriber, even if the event has already been sent (FanOut).
