@@ -10,7 +10,7 @@ Reactor的`RingBufferProcessor`组件本质上是一个改造过的适应Reactiv
 ![图7. 在给力时间内的RingBufferProcessor，拥有两个消费相同队列的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。](http://projectreactor.io/docs/reference/images/RBP.png)
 **图7. 在给力时间内的`RingBufferProcessor`，拥有两个消费相同队列的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。**
 
-To create a RingBufferProcessor, you use static create helper methods.
+使用帮助类的静态方法来创建`RingBufferProcessor`。
 
 ```
 Processor<Integer, Integer> p = RingBufferProcessor.create("test", 32); (1)
