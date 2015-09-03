@@ -24,12 +24,11 @@ input.subscribe(p); (6)
 ```
 
 1. 创建一个Processor，它内部有一个包含32个slot的RingBuffer。
-1. Create a Processor with an internal RingBuffer capacity of 32 slots.
-1. Create a Reactor Stream from this Reactive Streams Processor.
-1. Each call to consume creates a Disruptor EventProcessor on its own Thread.
-1. Each call to consume creates a Disruptor EventProcessor on its own Thread.
-1. Each call to consume creates a Disruptor EventProcessor on its own Thread.
-1. Subscribe this Processor to a Reactive Streams Publisher.
+2. 基于`Reactive Stream Processor`创建`Reactor Stream`。
+3. 每个请求调用consume方法在自己的线程内创建一个Disruptor的EventProcessor。
+4. 每个请求调用consume方法在自己的线程内创建一个Disruptor的EventProcessor。
+5. 每个请求调用consume方法在自己的线程内创建一个Disruptor的EventProcessor。
+6. 由一个`Reactive Streams Publisher`订阅这个`Processor`。
 
 Each element of data passed to the Processor’s Subscribe.onNext(Buffer) method will be "broadcast" to all consumers. There’s no round-robin distribution with this Processor because that’s in the RingBufferWorkProcessor, discussed below. If you passed the integers 1, 2 and 3 into the Processor, you would see output in the console similar to this:
 
