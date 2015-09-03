@@ -5,10 +5,6 @@ Reactor的`RingBufferProcessor`组件本质上是一个改造过的适应Reactiv
 > - 开心的Reactor使用者
 > `RingBufferProcessor`用例
 
-> I use RingBufferProcessor to compute various output remote calls asynchronously: AMQP, SSD storage and an In-Memory store, the variable latency is totally eaten by the Processor and our Million-Message-Per-Sec Datasource never blocks !
-> — Happy Reactor user
-> Use Case for RingBufferProcessor
-
 ![Figure 7. RingBufferProcessor at a given time T, with 2 Subscribers, all consuming the same sequence, but delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.](http://projectreactor.io/docs/reference/images/RBP.png)
 **Figure 7. RingBufferProcessor at a given time T, with 2 Subscribers, all consuming the same sequence, but delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.**
 
