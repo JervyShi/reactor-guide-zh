@@ -30,7 +30,7 @@ input.subscribe(p); (6)
 5. 每个请求调用consume方法在自己的线程内创建一个Disruptor的EventProcessor。
 6. 由一个`Reactive Streams Publisher`订阅这个`Processor`。
 
-传递到`Processor`中`Subscribe.onNext(Buffer)`方法的每个数据元素都会被广播给所有的消费者。这个Processor没有使用轮询分发因为这种是`RingBufferWorkProcessor`有的，我们将稍后讨论。
+传递到`Processor`中`Subscribe.onNext(Buffer)`方法的每个数据元素都会被广播给所有的消费者。这个Processor没有使用轮询分发因为这种是`RingBufferWorkProcessor`有的，我们将稍后讨论。如果你传递1，2，3三个整数到`Processor`，你会在终端看到类似的输出：
 Each element of data passed to the Processor’s Subscribe.onNext(Buffer) method will be "broadcast" to all consumers. There’s no round-robin distribution with this Processor because that’s in the RingBufferWorkProcessor, discussed below. If you passed the integers 1, 2 and 3 into the Processor, you would see output in the console similar to this:
 
 ```
