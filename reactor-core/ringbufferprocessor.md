@@ -23,6 +23,7 @@ s.consume(i -> System.out.println(Thread.currentThread() + " data=" + i)); (5)
 input.subscribe(p); (6)
 ```
 
+1. 创建一个Processor，它内部有一个包含32个slot的RingBuffer。
 1. Create a Processor with an internal RingBuffer capacity of 32 slots.
 1. Create a Reactor Stream from this Reactive Streams Processor.
 1. Each call to consume creates a Disruptor EventProcessor on its own Thread.
