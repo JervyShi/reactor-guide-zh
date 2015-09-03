@@ -46,4 +46,3 @@ Thread[test-3,5,main] data=3```
 每个线程都能接收到传递给Processor的所有数据，每个线程都按照数据传入的顺序接收到这些数据，因为内部使用RingBuffer来管理这些数据。
 
 > `RingBufferProcessor`可以回放错过的信号-0 Subscriber到任意数量的Subscriber。Processor会等待onNext()执行如果一个满的RingBuffer没有被一个subscriber消费掉。从最后一个已被确认的序列由一个subsUp到配置的ringbuffer的大小确认将保持准备要被回放给每个新Subscriber，即使该事件已经被发送。
-> RingBufferProcessor can replay missed signals -0 subscribers- to any future subscribers. That will force a processor to wait onNext() if a full buffer is not being drained by a subscriber. From the last sequence acknowledged by a subsUp to the size of the configured ringbuffer will be kept ready to be replayed for every new subscriber, even if the event has already been sent (FanOut).
