@@ -4,9 +4,9 @@
 
 > 我们实现了一个`RingBufferWorkProcessor`，可扩展、支持负载均衡的各种HTTP微服务调用。我可能是错的，但是它看起来快过光速并且GC压力完全在可控范围内。
 
-> — Happy Reactor user
+> — 愉快的Reactor使用者
 
-> Use Case for RingBufferWorkProcessor
+> RingBufferWorkProcessor的使用案例
 
 ![Figure 8. RingBufferWorkProcessor at a given time T, with 2 Subscribers, each consuming unique sequence (availabilty FIFO), delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.](http://projectreactor.io/docs/reference/images/RBWP.png)
 **Figure 8. RingBufferWorkProcessor at a given time T, with 2 Subscribers, each consuming unique sequence (availabilty FIFO), delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.**
