@@ -17,10 +17,9 @@
 Processor<Integer, Integer> p = RingBufferWorkProcessor.create("test", 32);(1)
 ```
 
-1. 
-1. Create a Processor with an internal RingBuffer capacity of 32 slots.
+1. 创建一个Processor，它内部有一个包含32个slot的RingBuffer。
 
-Now when values are published to the `Processor`, they will not be broadcast to every consumer, but be partitioned based on the number of consumers. When we run this sample, we see output like this now:
+现在当有数据被发布到`Processor`，它们将不会再广播给所有消费者，但是会被基于消费者数量进行分区。当我们运行这个例子时，我们将会类似下面的结果：
 
 ```
 Thread[test-2,5,main] data=3
