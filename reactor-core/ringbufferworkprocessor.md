@@ -27,4 +27,5 @@ Thread[test-3,5,main] data=2
 Thread[test-1,5,main] data=1
 ```
 
+> `RingBufferWorkProcessor`能回放被中断的信号，检测正在停止工作的Subscriber的取消异常。这会是唯一一种特例，一个信号可能会被播放不至一次。我们保证任何事件最好被执行一次。如果你熟悉这个语义，你可能会说“等等，`RingBufferWorkProcessor`像一个消息Broker一样运作？”答案是对的。
 > RingBufferWorkProcessor can replay interrupted signals, detecting CancelException from the terminating subscriber. It will be the only case where a signal will actually be played eventually once more with another Subscriber. We guarantee at-least-once delivery for any events. If you are familiar with semantic you might now say "Wait, this RingBufferWorkProcessor works like a Message Broker?", and the answer is yes.
