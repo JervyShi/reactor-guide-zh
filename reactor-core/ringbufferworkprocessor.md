@@ -16,6 +16,8 @@
 ```
 Processor<Integer, Integer> p = RingBufferWorkProcessor.create("test", 32);(1)
 ```
+
+1. 
 1. Create a Processor with an internal RingBuffer capacity of 32 slots.
 
 Now when values are published to the `Processor`, they will not be broadcast to every consumer, but be partitioned based on the number of consumers. When we run this sample, we see output like this now:
