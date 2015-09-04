@@ -12,7 +12,6 @@
 **图8. 在给力时间内的RingBufferProcessor，各自消费不同队列（消费方式：先进先出）的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。**
 
 要使用`RingBufferWorkProcessor`，唯一需要修改的就是上面代码例子中`create`的静态方法。你将会使用`RingBufferWorkProcessor`类自己的方法替代原有方法。余下代码保持一致。
-To use the `RingBufferWorkProcessor`, the only thing you have to change from the above code sample is the reference to the static `create` method. You’ll use the one on the `RingBufferWorkProcessor` class itself instead. The rest of the code remains identical.
 
 ```
 Processor<Integer, Integer> p = RingBufferWorkProcessor.create("test", 32);(1)
