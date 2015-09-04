@@ -8,8 +8,8 @@
 
 > RingBufferWorkProcessor的使用案例
 
-![Figure 8. RingBufferWorkProcessor at a given time T, with 2 Subscribers, each consuming unique sequence (availabilty FIFO), delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.](http://projectreactor.io/docs/reference/images/RBWP.png)
-**Figure 8. RingBufferWorkProcessor at a given time T, with 2 Subscribers, each consuming unique sequence (availabilty FIFO), delta consuming rate is allowed until the ring buffer is full. This will happen when blue cube is colliding with its next clockwise yellow cube.**
+![图8. 在给力时间内的RingBufferProcessor，各自消费不同队列（消费方式：先进先出）的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。](http://projectreactor.io/docs/reference/images/RBWP.png)
+**图8. 在给力时间内的RingBufferProcessor，各自消费不同队列（消费方式：先进先出）的Subscriber，允许增量消费直到RingBuffer已满。当蓝色块的下一个块是黄色块时这种情况会发生。**
 
 To use the `RingBufferWorkProcessor`, the only thing you have to change from the above code sample is the reference to the static `create` method. You’ll use the one on the `RingBufferWorkProcessor` class itself instead. The rest of the code remains identical.
 
