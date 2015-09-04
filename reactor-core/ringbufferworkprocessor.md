@@ -1,7 +1,6 @@
 # RingBufferWorkProcessor
 
 `RingBufferWorkProcessor`不像标准的`RingBufferProcessor`会广播数据给所有消费者，`RingBufferWorkProcessor`根据进入的数据基于消费者的数量做分区。流入`Processor`的数据会基于轮询机制发送到多个线程中（因为每个消费者拥有自己的线程），依旧使用`RingBuffer`来管理数据的发布。
-Unlike the standard **RingBufferProcessor**, which broadcasts its values to all consumers, the **RingBufferWorkProcessor** partitions the incoming values based on the number of consumers. Values come into the **Processor** and are sent to the various threads (because each consumer has its own thread) in a round-robin fashion, while still using the internal **RingBuffer** to efficiently manage the publication of values by providing backpressure to the producer when appropriate.
 
 > We implemented a RingBufferWorkProcessor to scale-up and load-balance various HTTP microservices calls. I might be wrong but it looks like its faster than light (!) and the GC pressure is totally under control.
 
