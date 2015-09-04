@@ -2,6 +2,7 @@
 
 `RingBufferWorkProcessor`不像标准的`RingBufferProcessor`会广播数据给所有消费者，`RingBufferWorkProcessor`根据进入的数据基于消费者的数量做分区。流入`Processor`的数据会基于轮询机制发送到多个线程中（因为每个消费者拥有自己的线程），依旧使用`RingBuffer`来管理数据的发布。
 
+> 我们实现了一个`RingBufferWorkProcessor`，可扩展、支持负载均衡的各种HTTP微服务调用。我可能是错的，但是它看起来快过光速并且GC压力完全在可控范围内。
 > We implemented a RingBufferWorkProcessor to scale-up and load-balance various HTTP microservices calls. I might be wrong but it looks like its faster than light (!) and the GC pressure is totally under control.
 
 > — Happy Reactor user
