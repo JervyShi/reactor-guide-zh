@@ -26,5 +26,5 @@
 * [reactor-stream](reactor-stream/README.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
-* [Extensions](extensions/README)
+* [Extensions](extensions/readme.md)
 
