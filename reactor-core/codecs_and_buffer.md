@@ -49,7 +49,7 @@ for (Buffer.View view : views) {
 }
 ```
 
-Playing with Buffer can feel a bit low-level for the common marshalling/unmarshalling use cases and Reactor comes with a series of pre-defined converters called Codec. Some Codec will be requiring the appropriate extra dependency in the classpath to work, like Jackson for JSON manipulation.
+在正常的序列化/反序列化的场景中使用`Buffer`会显得有些层级过低，`Reactor`提供一些称为`Codec`的预定义转换器。一些`Codec`在使用时需要在classpath下增加一些额外的依赖，比如处理Json时需要用到Jackson。
 
 Codec works in two ways, first it implements Function to encode anything directly and return the encoded data, usually under the form of Buffer. This is great but it does only work with stateless Codecs, the alternative is to use the returned encoding function from Codec.encoder().
 
