@@ -2,6 +2,7 @@
 
 字节码操作对大量数据管道配置类的应用来说是一个核心关注点。它广泛应用于`reactor-net`模块来序列化和反序列化从IO中接收或发送的字节码。
 
+`reactor.io.buffer.Buffer`是Java中`ByteBuffer`的装饰器，增加了一系列操作。目的是通过`ByteBuffer`的限制和读取或者覆盖预分配的字节来减少字节的复制。
 The `reactor.io.buffer.Buffer` is a decorator for Java `ByteBuffer` handling, adding a series of operations. The goal is to minimize byte copy by playing with the ByteBuffer limits and reading or overwritting pre-allocated bytes. Tracking the ByteBuffer positions can quickly switch the developer brain into headache mode. At least it did that to us and we just decided to propose this simple tool to our users.
 
 A simple Buffer manipulation as seen in one of our Groovy Spock test:
