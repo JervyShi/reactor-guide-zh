@@ -55,8 +55,8 @@ for (Buffer.View view : views) {
 
 **Codec.encoder() vs Codec.apply(Source)**
 
-* Codec.encoder() returns a unique encoding function that should not be shared between different Threads.
-* Codec.apply() directly encodes (and save an encoder allocation), but the Codec itself should be shared between Threads in that case
+* Codec.encoder() 返回一个唯一编码函数，且不能在多个线程间共享。
+* Codec.apply() 直接编码（并保存分配的编码器），但是`Codec`本身需要在多个线程间共享。
 
 > Reactor Net handles that difference for you in fact by calling Codec.encoder for each new connection.
 
