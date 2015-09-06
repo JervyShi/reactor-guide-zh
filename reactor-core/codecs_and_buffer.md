@@ -4,7 +4,7 @@
 
 `reactor.io.buffer.Buffer`是Java中`ByteBuffer`的装饰器，增加了一系列操作。目的是通过`ByteBuffer`的限制和读取或者覆盖预分配的字节来减少对字节的复制。追踪`ByteBuffer`的位置能把开发者折腾的头痛不已。`Buffer`帮我们处理了这些问题，我们决定把这个简单的工具带给用户。
 
-A simple Buffer manipulation as seen in one of our Groovy Spock test:
+下面是在Groovy Spock测试中写的一个简单操作Buffer的例子：
 
 ```
 import reactor.io.buffer.Buffer
