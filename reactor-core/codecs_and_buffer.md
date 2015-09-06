@@ -23,7 +23,7 @@ then: "the Buffer was added"
                 buff.flip().asString() == "Hello World!"
 ```
 
-A useful application for Buffer is Buffer.View, which is returned by multiple operations such as split(). It simply provides for a copy-free way to scan and introspect bytes from ByteBuffer. Buffer.View is also a kind of Buffer, so the same operations are exposed.
+`Buffer`的一种十分有用的应用是`Buffer.View`，很多操作如`split()`就会返回它。它提供一种无需拷贝的方式来扫描和检索`ByteBuffer`中的字节码。`Buffer.View`也是一种`Buffer`，所以有些操作也是对外暴露的。
 
 Reusing the same bytes for chunked read using a delimiter and Buffer.View:
 
