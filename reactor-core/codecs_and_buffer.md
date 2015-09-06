@@ -51,7 +51,7 @@ for (Buffer.View view : views) {
 
 在正常的序列化/反序列化的场景中使用`Buffer`会显得有些层级过低，`Reactor`提供一些称为`Codec`的预定义转换器。一些`Codec`在使用时需要在classpath下增加一些额外的依赖，比如处理Json时需要用到Jackson。
 
-Codec works in two ways, first it implements Function to encode anything directly and return the encoded data, usually under the form of Buffer. This is great but it does only work with stateless Codecs, the alternative is to use the returned encoding function from Codec.encoder().
+`Codec`有两种工作方式，第一种是实现Funcation来直接编码并且返回编码后的数据，通常以Buffer的表单形式返回。这非常棒，但仅限于与无状态的`Codec`工作才能起效，另一个可选的方法是使用`Codec.encoder()`返回的编码函数。
 
 **Codec.encoder() vs Codec.apply(Source)**
 
