@@ -39,7 +39,7 @@
        * [Into Buffers](into_buffers.md)
        * [Into Windows](into_windows.md)
    * [Backpressure and Overflow](backpressure_and_overflow.md)
-   * Combinatory Operations
+   * [Combinatory Operations](combinatory_operations.md)
    * MicroServices
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
