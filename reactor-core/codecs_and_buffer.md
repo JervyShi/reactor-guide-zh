@@ -58,7 +58,7 @@ for (Buffer.View view : views) {
 * Codec.encoder() 返回一个唯一编码函数，且不能在多个线程间共享。
 * Codec.apply() 直接编码（并保存分配的编码器），但是`Codec`本身需要在多个线程间共享。
 
-> Reactor Net handles that difference for you in fact by calling Codec.encoder for each new connection.
+> Reactor Net模块实际上通过每个新线程调用一次`Codec.encoder`来避免线程安全问题
 
 Codec can also decode data into from source type, usually Buffer for most of the Codec implementations. To decode a source data, we must retrieve a decoding function from Codec.decoder(). Unlike in the encoding side, there isn’t any apply shortcut as the method is already overloaded for the encoding purpose. Like the encoding side, the decoding function should not be shared between Threads.
 
