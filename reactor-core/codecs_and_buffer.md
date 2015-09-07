@@ -60,8 +60,7 @@ for (Buffer.View view : views) {
 
 > Reactor Net模块实际上通过每个新线程调用一次`Codec.encoder`来避免线程安全问题
 
-对于大部分实现了`Buffer`的`Codec`来说，`Codec`同样也能通过源类型解码数据。我们需要通过`Codec.decoder()`来获取一个解码函数用于解码数据。
-Codec can also decode data into from source type, usually Buffer for most of the Codec implementations. To decode a source data, we must retrieve a decoding function from Codec.decoder(). Unlike in the encoding side, there isn’t any apply shortcut as the method is already overloaded for the encoding purpose. Like the encoding side, the decoding function should not be shared between Threads.
+对于大部分实现了`Buffer`的`Codec`来说，`Codec`同样也能通过源类型解码数据。我们需要通过`Codec.decoder()`来获取一个解码函数用于解码数据。和编码不同的是，没有可重写的方法用于解码数据。和编码相同的是，解码方法也不是线程安全的。
 
 There are two forms of Codec.decoder() functions, one will simply return the decoded data where Codec.decoder(Consumer) will call the passed consumer on each decoding event.
 
