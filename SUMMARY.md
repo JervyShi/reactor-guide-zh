@@ -33,6 +33,7 @@
        * From Hot Data Sources
        * Wiring up a Stream
        * Setting Capacity
+       * Functional Composition
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
