@@ -31,6 +31,7 @@
        * From Existing Reactive Publishers
        * From Custom Reactive Publishers
        * From Hot Data Sources
+       * Wiring up a Stream
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
