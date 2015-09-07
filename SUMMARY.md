@@ -28,7 +28,7 @@
    * [Streams Basics](streams_basics.md)
    * [Creating Streams and Promises](creating_streams_and_promises.md)
        * [From Cold Data Sources](from_cold_data_sources.md)
-       * From Existing Reactive Publishers
+       * [From Existing Reactive Publishers](from_existing_reactive_publishers.md)
        * From Custom Reactive Publishers
        * From Hot Data Sources
        * Wiring up a Stream
