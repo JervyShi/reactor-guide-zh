@@ -62,6 +62,7 @@ for (Buffer.View view : views) {
 
 对于大部分实现了`Buffer`的`Codec`来说，`Codec`同样也能通过源类型解码数据。我们需要通过`Codec.decoder()`来获取一个解码函数用于解码数据。和编码不同的是，没有可重写的方法用于解码数据。和编码相同的是，解码方法也不是线程安全的。
 
+有两种形式的`Codec.decoder()`函数，其中一个简单的返回解码数据，另一个`Codec.decoder(Consumer)`将会调用consumer处理每次解码事件。
 There are two forms of Codec.decoder() functions, one will simply return the decoded data where Codec.decoder(Consumer) will call the passed consumer on each decoding event.
 
 **Codec.decoder() vs Codec.decoder(Consumer)**
