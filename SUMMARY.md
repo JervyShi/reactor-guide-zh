@@ -26,6 +26,7 @@
 * [reactor-stream](reactor-stream/README.md)
    * Coordinating tasks with Streams and Promises
    * Streams Basics
+   * Creating Streams and Promises
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
