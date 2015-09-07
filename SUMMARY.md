@@ -25,7 +25,7 @@
    * [Codecs and Buffer](reactor-core/codecs_and_buffer.md)
 * [reactor-stream](reactor-stream/README.md)
    * Coordinating tasks with Streams and Promises
-   * Streams Basics
+   * [Streams Basics](streams_basics.md)
    * [Creating Streams and Promises](creating_streams_and_promises.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
