@@ -31,7 +31,7 @@
        * [From Existing Reactive Publishers](from_existing_reactive_publishers.md)
        * [From Custom Reactive Publishers](from_custom_reactive_publishers.md)
        * [From Hot Data Sources](from_hot_data_sources.md)
-       * Wiring up a Stream
+       * [Wiring up a Stream](wiring_up_a_stream.md)
        * Setting Capacity
        * Functional Composition
 * [reactor-bus](reactor-bus/readme.md)
