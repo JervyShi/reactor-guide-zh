@@ -36,6 +36,7 @@
        * [Functional Composition](functional_composition.md)
    * [Understanding the threading model](understanding_the_threading_model.md)
    * [MicroBatching](microbatching.md)
+       * Into Buffers
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
