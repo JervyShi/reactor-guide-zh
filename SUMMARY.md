@@ -34,6 +34,7 @@
        * [Wiring up a Stream](wiring_up_a_stream.md)
        * [Setting Capacity](setting_capacity.md)
        * [Functional Composition](functional_composition.md)
+   * Understanding the threading model
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
