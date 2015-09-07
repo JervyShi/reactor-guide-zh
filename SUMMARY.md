@@ -37,7 +37,7 @@
    * [Understanding the threading model](understanding_the_threading_model.md)
    * [MicroBatching](microbatching.md)
        * [Into Buffers](into_buffers.md)
-       * Into Windows
+       * [Into Windows](into_windows.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
