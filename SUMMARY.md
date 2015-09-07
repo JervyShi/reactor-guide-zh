@@ -42,7 +42,7 @@
    * [Combinatory Operations](combinatory_operations.md)
    * [MicroServices](microservices.md)
        * [Creating Non-Blocking Services](creating_non-blocking_services.md)
-       * Composing multiple Services Calls
+       * [Composing multiple Services Calls](composing_multiple_services_calls.md)
        * Supporting Reactive Backpressure
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
