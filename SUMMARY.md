@@ -33,7 +33,7 @@
        * [From Hot Data Sources](from_hot_data_sources.md)
        * [Wiring up a Stream](wiring_up_a_stream.md)
        * [Setting Capacity](setting_capacity.md)
-       * Functional Composition
+       * [Functional Composition](functional_composition.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
