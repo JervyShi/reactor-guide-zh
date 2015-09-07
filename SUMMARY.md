@@ -44,6 +44,7 @@
        * [Creating Non-Blocking Services](creating_non-blocking_services.md)
        * [Composing multiple Services Calls](composing_multiple_services_calls.md)
        * [Supporting Reactive Backpressure](supporting_reactive_backpressure.md)
+   * Error Handling
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
