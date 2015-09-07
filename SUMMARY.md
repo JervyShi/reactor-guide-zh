@@ -46,7 +46,7 @@
        * [Supporting Reactive Backpressure](supporting_reactive_backpressure.md)
    * [Error Handling](error_handling.md)
    * [Persisting Stream Data](persisting_stream_data.md)
-   * Analytics
+   * [Analytics](analytics.md)
    * Partitioning
    * Other API beyond Rx
 * [reactor-bus](reactor-bus/readme.md)
