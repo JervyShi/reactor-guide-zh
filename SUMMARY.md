@@ -45,6 +45,7 @@
        * [Composing multiple Services Calls](composing_multiple_services_calls.md)
        * [Supporting Reactive Backpressure](supporting_reactive_backpressure.md)
    * Error Handling
+   * Persisting Stream Data
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
