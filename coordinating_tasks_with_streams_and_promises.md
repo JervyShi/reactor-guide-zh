@@ -21,3 +21,4 @@
  * Unlike Core Processors, they will usually not bother with buffering data if there is no subscriber attached
  * However the BehaviorBroadcaster can replay the latest signal to new Subscribers
 
+> *Do not confuse reactor.rx.Stream with the new JDK 8 java.util.stream.Stream. The latter does not offer a Reactive Streams based API nor Reactive Extensions. However, the JDK 8 Stream API is quite complete when used with primitive types and Collections. In fact it’s quite interesting for JDK 8 enabled applications to mix both JDK and Reactive Streams.*
