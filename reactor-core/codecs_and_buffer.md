@@ -102,7 +102,7 @@ then: 'The decoded maps have the expected entries'
                 decodedMap['a'] == 'beta'
 ```
 
-Table 4. Available Core Codecs:
+Table 4. 可用的核心`Codec`:
 
 Name|Description|Required Dependency
 ----|-----------|-------------------
