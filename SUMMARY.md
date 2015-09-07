@@ -48,7 +48,7 @@
    * [Persisting Stream Data](persisting_stream_data.md)
    * [Analytics](analytics.md)
    * [Partitioning](partitioning.md)
-   * Other API beyond Rx
+   * [Other API beyond Rx](other_api_beyond_rx.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
