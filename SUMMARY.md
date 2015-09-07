@@ -47,6 +47,7 @@
    * Error Handling
    * Persisting Stream Data
    * Analytics
+   * Partitioning
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
