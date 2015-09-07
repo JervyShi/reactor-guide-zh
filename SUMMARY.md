@@ -39,6 +39,7 @@
        * [Into Buffers](into_buffers.md)
        * [Into Windows](into_windows.md)
    * Backpressure and Overflow
+   * Combinatory Operations
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
