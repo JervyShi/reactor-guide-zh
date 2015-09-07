@@ -66,7 +66,7 @@ for (Buffer.View view : views) {
 
 **Codec.decoder() vs Codec.decoder(Consumer)**
 
-* Codec.decoder() 是一种阻塞的解码函数，它将会直接返回传入源数据对应的解码数据。
+* Codec.decoder() 是一种阻塞式的解码函数，它将会直接返回传入源数据对应的解码数据。
 * Codec.decoder(Consumer) 可以用于非阻塞式解码，调用时不会返回任何东西，仅仅在解码完毕时对传入Consumer进行回调。它可以与任何异步场景进行整合。
 
 Using one of the predefined Codecs as verified in this Groovy Spock test:
