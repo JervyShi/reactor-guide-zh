@@ -104,7 +104,7 @@ then: 'The decoded maps have the expected entries'
 
 Table 4. 可用的核心`Codec`:
 
-Name|Description|Required Dependency
+名称|描述|需要的依赖
 ----|-----------|-------------------
 ByteArrayCodec|Wrap/unwrap byte arrays from/to Buffer.|N/A
 DelimitedCodec|Split/Aggregate Buffer and delegate to the passed Codec for unit marshalling.|N/A
