@@ -44,7 +44,7 @@
        * [Creating Non-Blocking Services](creating_non-blocking_services.md)
        * [Composing multiple Services Calls](composing_multiple_services_calls.md)
        * [Supporting Reactive Backpressure](supporting_reactive_backpressure.md)
-   * Error Handling
+   * [Error Handling](error_handling.md)
    * Persisting Stream Data
    * Analytics
    * Partitioning
