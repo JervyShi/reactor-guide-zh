@@ -35,7 +35,7 @@
        * [Setting Capacity](setting_capacity.md)
        * [Functional Composition](functional_composition.md)
    * Understanding the threading model
-   * MicroBatching
+   * [MicroBatching](microbatching.md)
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
