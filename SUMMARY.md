@@ -41,6 +41,7 @@
    * [Backpressure and Overflow](backpressure_and_overflow.md)
    * [Combinatory Operations](combinatory_operations.md)
    * [MicroServices](microservices.md)
+       * Creating Non-Blocking Services
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
