@@ -45,7 +45,7 @@
        * [Composing multiple Services Calls](composing_multiple_services_calls.md)
        * [Supporting Reactive Backpressure](supporting_reactive_backpressure.md)
    * [Error Handling](error_handling.md)
-   * Persisting Stream Data
+   * [Persisting Stream Data](persisting_stream_data.md)
    * Analytics
    * Partitioning
    * Other API beyond Rx
