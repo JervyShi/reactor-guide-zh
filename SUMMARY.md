@@ -47,7 +47,7 @@
    * [Error Handling](error_handling.md)
    * [Persisting Stream Data](persisting_stream_data.md)
    * [Analytics](analytics.md)
-   * Partitioning
+   * [Partitioning](partitioning.md)
    * Other API beyond Rx
 * [reactor-bus](reactor-bus/readme.md)
 * [reactor-net](reactor-net/readme.md)
