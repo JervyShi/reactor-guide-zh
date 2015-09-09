@@ -24,7 +24,7 @@
        * [RingBufferWorkProcessor](reactor-core/ringbufferworkprocessor.md)
    * [Codecs and Buffer](reactor-core/codecs_and_buffer.md)
 * [reactor-stream](reactor-stream/README.md)
-   * [Coordinating tasks with Streams and Promises](reactor-stream/coordinatingtaskswith_streams_and_promises_md_md.md)
+   * [Coordinating tasks with Streams and Promises](reactor-stream/coordinating_tasks_with_streams_and_promises.md.md)
    * [Streams Basics](reactor-stream/streams_basics.md)
    * [Creating Streams and Promises](reactor-stream/creating_streams_and_promises.md)
        * [From Cold Data Sources](reactor-stream/from_cold_data_sources.md)
