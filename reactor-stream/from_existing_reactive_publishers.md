@@ -1,5 +1,5 @@
 
-## From Existing Reactive Publishers
+### From Existing Reactive Publishers
 
 Existing Reactive Streams **Publishers** can very well be from other implementations, including the user ones, or from Reactor itself.
 
