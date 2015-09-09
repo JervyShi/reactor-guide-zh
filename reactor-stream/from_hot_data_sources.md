@@ -54,3 +54,12 @@ sink.onNext("Hello World!"); (4)
 ||||
 |Promises.ready()|||
 |Prepare a Promise ready to be called exactly once by any external context through onNext. Since it’s a stateful container holding the result of the fulfilled promise, new subscribers will immediately run on the current thread.|||
+
+> For Asynchronous broadcasting, always consider a Core Processor alternative to a Broadcaster:
+
+* A Broadcaster will trigger a CancelException if there are no subscribers. A Core RingBuffer*Processor will always deliver buffered data to the first subscriber.
+* Some Dispatcher types that can be assigned to a Broadcaster might not support concurrent onNext. Use RingBuffer*Processor.share() for an alternative, thread-safe, concurrent onNext.
+* RingBuffer*Processor supports replaying an event cancelled in-flight by a downstream subscriber if it’s still running on the processor thread. A Broadcaster won’t support replaying.
+* RingBuffer*Processor are faster than their alternative Broadcaster with a RingBufferDispatcher
+* RingBufferWorkProcessor supports scaling up with the number of attached subscribers.
+* Broadcaster might be promoted to a Processor in 2.1 anyway, achieving the same thing and removing the need for the Reactor user to struggle picking between Processor and Broadcaster.
