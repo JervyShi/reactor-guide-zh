@@ -22,4 +22,30 @@ st.dispatchOn(Environment.cachedDispatcher()) (2)
 
 **Table 5. Creating pre-determined Streams and Promises**
 
-
+|Factory method|Data Type|
+|--------------|---------|
+|**Role**||
+|Streams.<T>empty()|T|
+|Only emit onComplete() once requested by its Subscriber.||
+|Streams.<T>never()|T|
+|Never emit anything. Useful for keep-alive behaviors.||
+|Streams.<T, Throwable>fail(Throwable)|T|
+|Only emit onError(Throwable).||
+|Streams.from(Future<T>)|T|
+|Block the Subscription.request(long) on the passed Future.get() that might emit onNext(T) and onComplete()otherwise onError(Throwable) for any exception.||
+|Streams.from(T[])|T|
+|Emit N onNext(T) elements everytime Subscription.request(N) is invoked. If N == Long.MAX_VALUE, emit everything. Once all the array has been read, emit onComplete().||
+|Streams.from(Iterable<T>)|T|
+|Emit N onNext(T) elements everytime Subscription.request(N) is invoked. If N == Long.MAX_VALUE, emit everything. Once all the array has been read, emit onComplete().||
+|Streams.range(long, long)|Long|
+|Emit a sequence of N onNext(Long) everytime Subscription.request(N) is invoked. If N == Long.MAX_VALUE, emit everything. Once the inclusive upper bound been read, emit onComplete().||
+|Streams.just(T, T, T, T, T, T, T, T)|T|
+|An optimization over Streams.from(Iterable) that just behaves similarly. Also useful to emit Iterable, Array or Future without colliding with the Streams.from() signatures.||
+|Streams.generate(Supplier<T>)|T|
+|Emit onNext(T) from the producing Supplier.get() factory everytime Subscription.request(N) is called. The demand N is ignored as only one data is emitted. When a null value is returned, emit onComplete().||
+|Promises.syncTask(Supplier<T>), Promises.task(, Supplier<T>)|T|
+|Emit a single onNext(T) and onComplete() from the producing Supplier.get() on the first Subscription.request(N)received. The demand N is ignored.||
+|Promises.success(T)|T|
+|Emit onNext(T) and onComplete() whenever a Subscriber is provided to Promise.subscribe(Subscriber).||
+|Promises.<T>error(Throwable)|T|
+|Emit onError(Throwable) whenever a Subscriber is subscribed is provided to Promise.subscribe(Subscriber).||
