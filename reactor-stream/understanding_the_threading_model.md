@@ -1,0 +1,61 @@
+
+## Understanding the threading model
+
+One common purpose for Reactive Streams and Reactive Extensions is to be unopinionated about threading behavior thanks to the signal callbacks. Streams are all about it will be executed at some point between now and some time T. Non-concurrent signals may also preserve Subscriber from concurrency access (share-nothing), however signals and requests can run on 2 asymmetric threads.
+
+By default the Stream is assigned with a SynchronousDispatcher and will inform its immediate child Actions via Stream.getDispatcher().
+
+> Various Stream factories, the Broadcaster, the Stream.dispatchOn and the terminal xxxOn methods might alter the default SynchronousDispatcher.
+
+**It is fundamental to understand the three major thread switchs available in Reactor Stream:**
+
+* The Stream.dispatchOn action is the only one available under Stream that will be dispatching onError, onComplete and onNext signals on the given Dispatcher.
+ * Since an action is a Processor it doesn’t support concurrent Dispatcher such as WorkQueueDispatcher.
+ * request and cancel will run on the dispatcher as well if in its context already. Otherwise it will execute after the current dispatch ends.
+* The Stream.subscribeOn action will be executing onSubscribe only on the passed dispatcher.
+ * Since the only time the passed Dispatcher is called is onSubscribe, any dispatcher can be used including the concurrent ones such as WorkQueueDispatcher.
+ * The first request might still execute in the onSubscribe thread, for instance with Stream.consume() actions.
+* Attaching a Processor via Stream.process for instance can affect the thread too. The Processor such as RingBufferProcessor will run the Subscribers on its managed threads.
+ * request and cancel will run on the processor as well if in its context already.
+ * RingBufferWorkProcessor will only dispatch onNext signals to one Subscriber at most unless it has cancelled in-flight (replay to a new Subscriber).
+
+Since the common contract is to start requesting data onSubscribe, subscribeOn is an efficient tool to scale-up streams, particulary unbounded ones. If a Subscriber requests Long.MAX_VALUE in onSubscribe, it will then be the only request executed and it will run on the dispatcher assigned in subscribeOn. This is the default behaviour for unbounded Stream.consume actions.
+
+**Jumping between threads with an unbounded demand**
+
+```
+Streams
+  .range(1, 100)
+  .dispatchOn(Environment.sharedDispatcher())   (2)
+  .subscribeOn(Environment.workDispatcher())    (1)
+  .consume();   (3)
+```
+
+1. Assign an onSubscribe work queue dispatcher.
+1. Assign a signal onNext, onError, onComplete dispatcher.
+1. Consume the Stream onSubscribe with Subscription.request(Long.MAX)
+
+![Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber](http://projectreactor.io/docs/reference/images/longMaxThreading.png)
+**Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber**
+
+However, subscribeOn is less useful when more than 1 request will be involved, like in step-consuming with Stream.capacity(n). The only request executed possibly running on the dispatcher assigned in subscribeOn is the first one.
+
+**Jumping between thread with a bounded demand 1**
+
+```
+Streams
+  .range(1, 100)
+  .process(RingBufferProcessor.create())    (2)
+  .subscribeOn(Environment.workDispatcher())    (1)
+  .capacity(1);     (3)
+  .consume();   (4)
+```
+
+1. Assign an onSubscribe work queue dispatcher. Note that it is placed after process as the subscribeOn will run on the ringBuffer thread on subscriber and we want to alter it to the work dispatcher.
+1. Assign an async signal onNext, onError, onComplete processor. Similar to dispatchOn behavior.
+1. Assign a Stream capacity to 1 so the downstream action adapts
+1. Consume the Stream onSubscribe with Subscription.request(1) and after every 1 onNext.
+
+![Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber](http://projectreactor.io/docs/reference/images/nThreading.png)
+**Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber**
+
