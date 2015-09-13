@@ -1,4 +1,5 @@
-**Into Buffers**
+
+### Into Buffers
 
 Collecting grouped sequences of data T into lists List<T> serves two main purposes:
 
