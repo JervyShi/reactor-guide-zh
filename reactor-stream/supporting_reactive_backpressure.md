@@ -59,8 +59,8 @@ stream
 
 **The Result**
 
-* Yes it’s more verbose…​
-* …​But now we stream result by result from the query (could have used pagination with SQL limits as well).
+* Yes it’s more verbose…
+* …But now we stream result by result from the query (could have used pagination with SQL limits as well).
 * Streams.createWith is a PublisherFactory which intercepts requests, start and stop.
  * The request consumer gives precisely how many elements a subscriber is ready to receive.
  * The request consumer receives a SubscriberWithContext delegating to the real Subscriber, it gives access to shared context and cancel status.
