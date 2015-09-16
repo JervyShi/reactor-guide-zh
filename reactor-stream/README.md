@@ -6,7 +6,7 @@
 
 > 银行业的客户
 
-**Head first with a Java 8 example of some Stream work**
+**首先，我们来看看在Java 8中一些Stream工作的例子：**
 
 ```
 import static reactor.Environment.*;
