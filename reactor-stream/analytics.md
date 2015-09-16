@@ -54,27 +54,27 @@ source.onComplete();
 
 **Table 20. Operations useful for metrics and other stateful accumulation.**
 
-|	Stream<T> API or Factory method	|	Output Type	|
+|	Stream&lt;T&gt; API or Factory method	|	Output Type	|
 |----|----|
 |	Role	|		|
 |		|		|
 |	count()	|	Long	|
 |	Produce the total number of observed onNext(T) after observing onComplete(). Useful when combined with timed windows. Not so useful with sized windows, e.g. stream.window(5).flatMap(w -> w.count()) → produce 5, awesome.	|		|
-|	scan(BiFunction<T,T>)	|	T	|
+|	scan(BiFunction&lt;T,T&gt;)	|	T	|
 |		|		|
-|	scan(A, BiFunction<A,T>)	|	A	|
+|	scan(A, BiFunction&lt;A,T&gt;)	|	A	|
 |		|		|
-|	reduce(BiFunction<T,T>)	|	T	|
+|	reduce(BiFunction&lt;T,T&gt;)	|	T	|
 |		|		|
-|	reduce(A, BiFunction<A,T>)	|	A	|
+|	reduce(A, BiFunction&lt;A,T&gt;)	|	A	|
 |		|		|
 |	BiStreams.reduceByKey()	|		|
 |		|		|
 |	BiStreams.scanByKey()	|		|
 |		|		|
-|	timestamp()	|	Tuple2<Long,T>	|
+|	timestamp()	|	Tuple2&lt;Long,T&gt;	|
 |		|		|
-|	elapsed()	|	Tuple2<Long,T>	|
+|	elapsed()	|	Tuple2&lt;Long,T&gt;	|
 |		|		|
-|	materialize() dematerialize()	|	Signal<T>	|
-|	Transform upstream signal into Signal<T>, and treat them as onNext(Signal<T>) signals. The immediate effect: it swallows error and completion signals, so it’s an effective way to count errors and completions if the Stream is using retry or repeat API. Once completion and errors are processed we can still run them by transforming the Signal<T> into the Reactive Streams right callback viadematerialize().	|		|
+|	materialize() dematerialize()	|	Signal&lt;T&gt;	|
+|	Transform upstream signal into Signal&lt;T&gt;, and treat them as onNext(Signal&lt;T&gt;) signals. The immediate effect: it swallows error and completion signals, so it’s an effective way to count errors and completions if the Stream is using retry or repeat API. Once completion and errors are processed we can still run them by transforming the Signal&lt;T&gt; into the Reactive Streams right callback viadematerialize().	|		|
