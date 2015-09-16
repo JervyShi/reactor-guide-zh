@@ -1,10 +1,10 @@
-# reactor-stream
+# reactor-stream模块
 
-> Nope, you shall not use Future.get(), ever.
+> 不，你永远也不要用```Future.get()```。
 
 > — Stephane Maldini
 
-> with a Banking Sector Customer
+> 银行业的客户
 
 **Head first with a Java 8 example of some Stream work**
 
