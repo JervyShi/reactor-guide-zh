@@ -8,14 +8,13 @@
 
 * Stream和它的直接实现
  * 包含Reactive扩展和其他组合类的API
- * Contains reactive extensions and other composition API
-* Promise with a specific A+ flavored API
- * Can be transformed back to Stream with Promise.stream()
-* Static Factories, the one-stop-shops to create related components
- * Streams for Stream creation from well-defined data sources (Iterable, nothing, Future, Publisher…)
- * BiStreams for key-value Stream<Tuple2> processing (reduceByKey…)
- * IOStreams for Persisting and Decoding Streams
- * Promises for single-data-only Promise
+* Promise和一组独特的A+风味的API
+ * 可以使用Promise.stream()转换为Stream 
+* 静态工厂，一步创建关联组件
+ * Streams是用于通过明确定义数据源（Iterable, nothing, Future, Publisher…）的Stream
+ * BiStreams是用于创建处理key-value的Stream<Tuple2>（reduceByKey…
+ * IOStreams是用于持久化和解码的Stream
+ * Promises是用于单一数据的Promise
 * Action and its direct implementations of every operation provided by the Stream following the Reactive Streams Processor specification
  * Not created directly, but with the Stream API (Stream.map() → MapAction, Stream.filter() → FilterAction…)
 * Broadcaster, a specific kind of Action exposing onXXXX interfaces for dynamic data dispatch
