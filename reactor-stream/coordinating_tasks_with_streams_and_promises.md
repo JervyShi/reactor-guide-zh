@@ -1,8 +1,8 @@
 
-## Coordinating tasks with Streams and Promises
+## 通过Stream和Promise协调任务
 
-![Figure 9. How Doge can use Reactor-Stream](http://projectreactor.io/docs/reference/images/streams-overview.png)
-**Figure 9. How Doge can use Reactor-Stream**
+![Figure 9. Doge如何使用 Reactor-Stream](http://projectreactor.io/docs/reference/images/streams-overview.png)
+**Figure 9. Doge如何使用 Reactor-Stream**
 
 **Reactor Streams** has the following artifacts:
 
