@@ -6,7 +6,8 @@
 
 **Reactor Streams**有以下特性:
 
-* Stream and its direct implementations
+* Stream和它的直接实现
+ * 包含Reactive扩展和其他组合类的API
  * Contains reactive extensions and other composition API
 * Promise with a specific A+ flavored API
  * Can be transformed back to Stream with Promise.stream()
