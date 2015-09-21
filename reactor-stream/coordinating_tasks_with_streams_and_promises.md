@@ -15,10 +15,10 @@
  * BiStreams是用于创建处理key-value的Stream<Tuple2>（reduceByKey…
  * IOStreams是用于持久化和解码的Stream
  * Promises是用于单一数据的Promise
-* Action and its direct implementations of every operation provided by the Stream following the Reactive Streams Processor specification
- * Not created directly, but with the Stream API (Stream.map() → MapAction, Stream.filter() → FilterAction…)
-* Broadcaster, a specific kind of Action exposing onXXXX interfaces for dynamic data dispatch
- * Unlike Core Processors, they will usually not bother with buffering data if there is no subscriber attached
- * However the BehaviorBroadcaster can replay the latest signal to new Subscribers
+* Action和Stream提供的所有操作的直接实现都遵循Reactive Stream规范
+ * 不直接创建，但是使用Stream API（Stream.map() → MapAction, Stream.filter() → FilterAction…） 
+* Broadcaster，一种特殊的Action为动态数据分发暴露onXXXX接口
+ * 不同于Core Processor，当没有消费者注册时他们不会犹豫是否缓存数据
+ * 然而BehaviorBroadcaster可以重播最近的信号给新的Subscriber们
 
-> *Do not confuse reactor.rx.Stream with the new JDK 8 java.util.stream.Stream. The latter does not offer a Reactive Streams based API nor Reactive Extensions. However, the JDK 8 Stream API is quite complete when used with primitive types and Collections. In fact it’s quite interesting for JDK 8 enabled applications to mix both JDK and Reactive Streams.*
+> *不要混淆```reactor.rx.Stream```和新的JDK 8``` java.util.stream.Stream```。后者不提供基于Reactive Streams 的API或者Reactive扩展。然而，JDK8的Stream API是相当完整的适用于原始类型和集合的使用。实际上，JDK 8允许应用混合JDK和Reactive Stream还是挺有趣的。*
