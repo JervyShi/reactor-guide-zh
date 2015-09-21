@@ -4,7 +4,7 @@
 ![Figure 9. Doge如何使用 Reactor-Stream](http://projectreactor.io/docs/reference/images/streams-overview.png)
 **Figure 9. Doge如何使用 Reactor-Stream**
 
-**Reactor Streams** has the following artifacts:
+**Reactor Streams**有以下特性:
 
 * Stream and its direct implementations
  * Contains reactive extensions and other composition API
