@@ -14,9 +14,9 @@ Reactor提供基于Reactive Streams标准的`Stream`或`Promise`来组建静态�
  * 想象下类似IO读或者数据库查询的游标读场景。
  * 可接受自动的Reactive Streams背压策略。
 
-> *As seen previously, Reactor uses an Environment to keep sets of Dispatcher instances around for shared use in a given JVM (and classloader). Anstatic {
+> 如先前所看，Reactor使用一个JVM（和类加载器）中的Environment来保存Dispatcher实例的集合来做共享。一个 static {
   Environment.initialize();
-} Environment instance can be created and passed around in an application to avoid classloading segregation issues or the static helpers can be used. Throughout the examples on this site, we’ll use the static helpers and encourage you to do likewise. To do that, you’ll need to initialize the static Environment somewhere in your application.*
+} Environment实例可以被创建并且在应用内传递，避免类加载器隔离问题，有一个可被使用的静态类。通过这个站点的示例，我们将会使用静态帮助类并且鼓励你也这样使用。你将需要在你应用中的任意地方初始化这个静态的Environment。
 
 > ```static {
   Environment.initialize();
