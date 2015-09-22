@@ -1,9 +1,9 @@
 
-## Streams Basics
+## Stream基础
 
-Reactor offers `Stream` or `Promise` based on the Reactive Streams standard to compose statically typed data pipelines.
+Reactor提供基于Reactive Streams标准的`Stream`或`Promise`来组建静态类型的数据管道。
 
-It is an incredibly useful and flexible component. It’s flexible enough to be used to just compose asynchronous actions together like RxJava’s `Observable`. But it’s powerful enough it can function as an asynchronous work queue that forks and joins arbitrary compositions or other Reactive Streams components coming from one of the other implementors of the standard.[3].
+这是一个非常有用和灵活的组件。它就像RxJava中的`Observable`一样足够灵活，可以简单的将异步行为构建在一起。但是它又足够强大，它可以像一个可随时加入和取出的异步工作队列或来自其他实现者依据标准实现的Reactive Streams组件来工作。
 
 **There are basically two rough categories of streams**
 
