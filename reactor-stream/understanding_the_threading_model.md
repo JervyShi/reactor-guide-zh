@@ -1,5 +1,5 @@
 
-## Understanding the threading model
+## 理解线程模型
 
 One common purpose for Reactive Streams and Reactive Extensions is to be unopinionated about threading behavior thanks to the signal callbacks. Streams are all about it will be executed at some point between now and some time T. Non-concurrent signals may also preserve Subscriber from concurrency access (share-nothing), however signals and requests can run on 2 asymmetric threads.
 
