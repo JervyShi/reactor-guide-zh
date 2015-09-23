@@ -1,15 +1,15 @@
 
-## Creating Streams and Promises
+## 创建Streams和Promises
 
-This is where you start if you are the owner of the data-source and want to just make it Reactive with direct access to various Reactive Extensions and Reactive Streams capacities.
+如果你是某个数据源的所有者，并且想要把它做成可直接访问并且包含多种Reactvie插件和Reactive Stream能力的Reactive，那么这是一个开始。
 
-Sometimes it’s also a case for expanding an existing `Reactive Stream Publisher` with `Stream` API and we fortunately offer one-shot static API to proceed to the conversion.
+有时，它也是一种使用`Stream`API扩展现有`Reactive Stream Publisher`的示例，很幸运的是我们提供一次性的静态API来处理它们之间的转换。
 
-Extending existing `Reactor Stream` like we do with `IterableStream`, `SingleValueStream` etc is also an incentive option to create a `Publisher` ready source (Stream implements it) injected with Reactor API.
+使用Reactor API来通过注入方式创建`Publisher`是一个刺激的选项，就像我们通过继承现有的`Reactor Stream`来实现的`IterableStream`, `SingleValueStream`一样。
 
-> *Streams and Promises are relatively inexpensive, our microbenchmark suite succeeds into creating more than 150M/s on commodity hardware. Most of the Streams stick to the Share-Nothing pattern, only creating new immutable objects when required.*
+> *Streams和Promises都比较便宜，我们的微基准套件成功通过商用硬件创造了超过150M/秒的服务能力。大部分流的坚持无共享模式，仅在需要时创建新的不可变对象。*
 
-> *Every operation will return a new instance:*
+> *每次操作都会返回一个新的实例：*
 
 ```
 Stream<A> stream = Streams.just(a);
