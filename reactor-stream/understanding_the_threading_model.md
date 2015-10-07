@@ -4,9 +4,8 @@
 `Reactive Streams`和`Reactive`扩展的一个共同目标是通过信号回调这种方式不再武断的遵循线程习惯。它会在现在和某个时刻`T`执行是`Streams`的所有。非同步信号也可以保存`Subscriber`的并发访问（无共享），但是信号和请求可以在两个不对称的线程上执行。
 
 默认情况下，`Stream`被分配了一个`SynchronousDispatcher`，并且将会通过`Stream.getDispatcher()`来通知它直接子级。
-By default the Stream is assigned with a SynchronousDispatcher and will inform its immediate child Actions via Stream.getDispatcher().
 
-> Various Stream factories, the Broadcaster, the Stream.dispatchOn and the terminal xxxOn methods might alter the default SynchronousDispatcher.
+> 多种多样的`Stream`工厂，`Broadcaster`，`Stream.dispatchOn`和终端的`xxxOn`方法可能会修改默认的`SynchronousDispatcher`
 
 **It is fundamental to understand the three major thread switchs available in Reactor Stream:**
 
