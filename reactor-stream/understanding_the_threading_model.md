@@ -1,7 +1,7 @@
 
 ## 理解线程模型
 
-One common purpose for Reactive Streams and Reactive Extensions is to be unopinionated about threading behavior thanks to the signal callbacks. Streams are all about it will be executed at some point between now and some time T. Non-concurrent signals may also preserve Subscriber from concurrency access (share-nothing), however signals and requests can run on 2 asymmetric threads.
+`Reactive Streams`和`Reactive`扩展的一个共同目标是通过信号回调这种方式不再武断的遵循线程习惯。它会在现在和某个时刻`T`执行是`Streams`的所有。非同步信号也可以保存`Subscriber`的并发访问（无共享），但是信号和请求可以在两个不对称的线程上执行。
 
 By default the Stream is assigned with a SynchronousDispatcher and will inform its immediate child Actions via Stream.getDispatcher().
 
