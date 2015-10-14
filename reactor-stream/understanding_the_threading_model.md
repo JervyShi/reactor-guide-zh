@@ -9,10 +9,11 @@
 
 **Reactor Stream中三大主要可用线程切换的基本了解：**
 
-* The Stream.dispatchOn action is the only one available under Stream that will be dispatching onError, onComplete and onNext signals on the given Dispatcher.
- * Since an action is a Processor it doesn’t support concurrent Dispatcher such as WorkQueueDispatcher.
- * request and cancel will run on the dispatcher as well if in its context already. Otherwise it will execute after the current dispatch ends.
-* The Stream.subscribeOn action will be executing onSubscribe only on the passed dispatcher.
+* `Stream.dispatchOn`的作用是Stream下唯一可用的方法用于在给定的dispatcher上分发`onError`，`onComplete`和`onNext`信号。
+ * Processor的行为不支持并发分发，例如`WorkQueueDispatcher`。
+ * request和cancel将会在dispatcher上执行，如果它的上下文准备完毕。否则它将会在当前dispatch执行完毕后执行。
+* `Stream.subscribeOn`将只会在已经通过的dispatcher上执行。
+ * 
  * Since the only time the passed Dispatcher is called is onSubscribe, any dispatcher can be used including the concurrent ones such as WorkQueueDispatcher.
  * The first request might still execute in the onSubscribe thread, for instance with Stream.consume() actions.
 * Attaching a Processor via Stream.process for instance can affect the thread too. The Processor such as RingBufferProcessor will run the Subscribers on its managed threads.
