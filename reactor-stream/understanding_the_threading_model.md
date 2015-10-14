@@ -16,9 +16,8 @@
  * 由于唯一一次通过的Dispatcher被称之为`onSubscribe`，任何dispatcher可以使用并发分发器，类似`WorkQueueDispatcher`。
  * 第一次请求可能仍然在`onSubscribe`线程中执行，如`Stream.consume()`操作的实例。
 * `Stream.process`附属的`Processor`实例也会影响线程。类似`RingBufferProcessor`的`Processor`将会使用它自己管理的线程来执行`Subscriber`。
- * 
- * request and cancel will run on the processor as well if in its context already.
- * RingBufferWorkProcessor will only dispatch onNext signals to one Subscriber at most unless it has cancelled in-flight (replay to a new Subscriber).
+ * 如果上下文准备完毕，请求和取消将会在同一个processor上执行。
+ * `RingBufferWorkProcessor`仅最多分发`onNext`信号到一个`Subscriber`上，除非它在执行过程中被中断（重播给一个新的`Subscriber`）。
 
 Since the common contract is to start requesting data onSubscribe, subscribeOn is an efficient tool to scale-up streams, particulary unbounded ones. If a Subscriber requests Long.MAX_VALUE in onSubscribe, it will then be the only request executed and it will run on the dispatcher assigned in subscribeOn. This is the default behaviour for unbounded Stream.consume actions.
 
