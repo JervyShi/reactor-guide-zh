@@ -7,7 +7,7 @@
 
 > 多种多样的`Stream`工厂，`Broadcaster`，`Stream.dispatchOn`和终端的`xxxOn`方法可能会修改默认的`SynchronousDispatcher`
 
-**It is fundamental to understand the three major thread switchs available in Reactor Stream:**
+**Reactor Stream中三大主要可用线程切换的基本了解：**
 
 * The Stream.dispatchOn action is the only one available under Stream that will be dispatching onError, onComplete and onNext signals on the given Dispatcher.
  * Since an action is a Processor it doesn’t support concurrent Dispatcher such as WorkQueueDispatcher.
