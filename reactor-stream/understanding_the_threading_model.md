@@ -13,9 +13,9 @@
  * Processor的行为不支持并发分发，例如`WorkQueueDispatcher`。
  * request和cancel将会在dispatcher上执行，如果它的上下文准备完毕。否则它将会在当前dispatch执行完毕后执行。
 * `Stream.subscribeOn`将只会在已经通过的dispatcher上执行。
- * 
- * Since the only time the passed Dispatcher is called is onSubscribe, any dispatcher can be used including the concurrent ones such as WorkQueueDispatcher.
- * The first request might still execute in the onSubscribe thread, for instance with Stream.consume() actions.
+ * 由于唯一一次通过的Dispatcher被称之为`onSubscribe`，任何dispatcher可以使用并发分发器，类似`WorkQueueDispatcher`。
+ * 第一次请求可能仍然在`onSubscribe`线程中执行，如`Stream.consume()`操作的实例。
+* 
 * Attaching a Processor via Stream.process for instance can affect the thread too. The Processor such as RingBufferProcessor will run the Subscribers on its managed threads.
  * request and cancel will run on the processor as well if in its context already.
  * RingBufferWorkProcessor will only dispatch onNext signals to one Subscriber at most unless it has cancelled in-flight (replay to a new Subscriber).
