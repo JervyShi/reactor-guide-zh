@@ -38,7 +38,8 @@ Streams
 ![Figure 12. 无界消费者的subscribeOn和dispatchOn/process](http://projectreactor.io/docs/reference/images/longMaxThreading.png)
 **Figure 12. 无界消费者的subscribeOn和dispatchOn/process**
 
-However, subscribeOn is less useful when more than 1 request will be involved, like in step-consuming with Stream.capacity(n). The only request executed possibly running on the dispatcher assigned in subscribeOn is the first one.
+然而，当多于1个请求将会变的复杂时，`subscribeOn`会变的比较无用，例如在限定`Stream.capacity(n)`的分步消费中。唯一执行请求的线程可能运行在分配给`subscribeOn`的第一个`dispatcher`上。
+
 
 **Jumping between thread with a bounded demand 1**
 
