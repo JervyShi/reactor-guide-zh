@@ -35,8 +35,8 @@ Streams
 1. 分配`onNext`，`onError`，`onComplete`信号的`dispatcher`。
 1. 使用`Subscription.request(Long.MAX)`来消费`Stream` `onSubscribe`
 
-![Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber](http://projectreactor.io/docs/reference/images/longMaxThreading.png)
-**Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber**
+![Figure 12. 无界消费者的subscribeOn和dispatchOn/process](http://projectreactor.io/docs/reference/images/longMaxThreading.png)
+**Figure 12. 无界消费者的subscribeOn和dispatchOn/process**
 
 However, subscribeOn is less useful when more than 1 request will be involved, like in step-consuming with Stream.capacity(n). The only request executed possibly running on the dispatcher assigned in subscribeOn is the first one.
 
