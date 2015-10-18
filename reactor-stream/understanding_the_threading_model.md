@@ -56,6 +56,6 @@ Streams
 1. 分配`Stream`的容量为1，以便下游做适应。
 1. 通过`Subscription.request(1)`在每次`onNext`时消费数据。
 
-![Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber](http://projectreactor.io/docs/reference/images/nThreading.png)
-**Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber**
+![Figure 13. 无界消费者（N < Long.MAX）的subscribeOn和dispatchOn/process)](http://projectreactor.io/docs/reference/images/nThreading.png)
+**Figure 13. 无界消费者（N < Long.MAX）的subscribeOn和dispatchOn/process**
 
