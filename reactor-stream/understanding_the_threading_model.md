@@ -21,7 +21,7 @@
 
 常规订阅是由`onSubscribe`开始请求数据，`subscribeOn`是一种有效的工具来放大`Stream`，尤其是无界的。如果一个订阅者向`onSubscribe`请求`Long.MAX_VALUE`条数据，它将会成为唯一一个执行请求者，并且它会在分配给这个订阅者的`diapatcher`上运行。这是无界`Stream`的默认消费行为。
 
-**Jumping between threads with an unbounded demand**
+**在无限请求的线程中跳转**
 
 ```
 Streams
@@ -31,9 +31,9 @@ Streams
   .consume();   (3)
 ```
 
-1. Assign an onSubscribe work queue dispatcher.
-1. Assign a signal onNext, onError, onComplete dispatcher.
-1. Consume the Stream onSubscribe with Subscription.request(Long.MAX)
+1. 分配一个`onSubscribe`工作队列`dispatcher`。
+1. 分配`onNext`，`onError`，`onComplete`信号的`dispatcher`。
+1. 使用`Subscription.request(Long.MAX)`来消费`Stream` `onSubscribe`
 
 ![Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber](http://projectreactor.io/docs/reference/images/longMaxThreading.png)
 **Figure 12. subscribeOn and dispatchOn/process with an unbounded Subscriber**
