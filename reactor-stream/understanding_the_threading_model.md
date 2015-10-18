@@ -31,7 +31,7 @@ Streams
   .consume();   (3)
 ```
 
-1. 分配一个`onSubscribe`工作队列`dispatcher`。
+1. 分配一个`onSubscribe`的工作队列`dispatcher`。
 1. 分配`onNext`，`onError`，`onComplete`信号的`dispatcher`。
 1. 使用`Subscription.request(Long.MAX)`来消费`Stream` `onSubscribe`
 
@@ -51,6 +51,7 @@ Streams
   .consume();   (4)
 ```
 
+1. 分配一个`onSubscribe`的工作队列`dispatcher`。请注意它被放置在subscribeOn将运行在用户的ringBuffer线程后，我们希望把它改成工作调度（dispatcher）。
 1. Assign an onSubscribe work queue dispatcher. Note that it is placed after process as the subscribeOn will run on the ringBuffer thread on subscriber and we want to alter it to the work dispatcher.
 1. Assign an async signal onNext, onError, onComplete processor. Similar to dispatchOn behavior.
 1. Assign a Stream capacity to 1 so the downstream action adapts
