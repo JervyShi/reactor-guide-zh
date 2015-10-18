@@ -40,8 +40,7 @@ Streams
 
 然而，当多于1个请求将会变的复杂时，`subscribeOn`会变的比较无用，例如在限定`Stream.capacity(n)`的分步消费中。唯一执行请求的线程可能运行在分配给`subscribeOn`的第一个`dispatcher`上。
 
-
-**Jumping between thread with a bounded demand 1**
+**在有限请求的线程中跳转**
 
 ```
 Streams
