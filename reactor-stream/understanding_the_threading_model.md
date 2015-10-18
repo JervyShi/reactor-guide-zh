@@ -53,9 +53,8 @@ Streams
 
 1. 分配一个`onSubscribe`的工作队列`dispatcher`。请注意它被放置在subscribeOn将运行在用户的ringBuffer线程后，我们希望把它改成工作调度（dispatcher）。
 1. 分配一个用于处理`onNext`，`onError`，`onComplete`的异步`Processor`。类似`dispatchOn`的行为。
-1. Assign an async signal onNext, onError, onComplete processor. Similar to dispatchOn behavior.
-1. Assign a Stream capacity to 1 so the downstream action adapts
-1. Consume the Stream onSubscribe with Subscription.request(1) and after every 1 onNext.
+1. 分配`Stream`的容量为1，以便下游做适应。
+1. 通过`Subscription.request(1)`在每次`onNext`时消费数据。
 
 ![Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber](http://projectreactor.io/docs/reference/images/nThreading.png)
 **Figure 13. subscribeOn and dispatchOn/process with an bounded (demand N < Long.MAX) Subscriber**
