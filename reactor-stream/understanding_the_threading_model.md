@@ -19,6 +19,7 @@
  * 如果上下文准备完毕，请求和取消将会在同一个processor上执行。
  * `RingBufferWorkProcessor`仅最多分发`onNext`信号到一个`Subscriber`上，除非它在执行过程中被中断（重播给一个新的`Subscriber`）。
 
+常规订阅是由`onSubscribe`开始请求数据，`subscribeOn`是
 Since the common contract is to start requesting data onSubscribe, subscribeOn is an efficient tool to scale-up streams, particulary unbounded ones. If a Subscriber requests Long.MAX_VALUE in onSubscribe, it will then be the only request executed and it will run on the dispatcher assigned in subscribeOn. This is the default behaviour for unbounded Stream.consume actions.
 
 **Jumping between threads with an unbounded demand**
