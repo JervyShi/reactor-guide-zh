@@ -41,7 +41,7 @@ Originally by Peter Norvig: http://norvig.com/21-days.html#answers
 
 Streams是数据序列，因此找到可以切分缓冲区总量的范围是一个非常好的API。
 
-**There are two categories for delimitations:**
+**主要有两类定界：**
 
 * Buffer : Concrete boundaries accumulating onNext(T) inside grouped List<T> passed to the child Subscriber.
  * Used best with external API requiring Iterable<T> input argument.
