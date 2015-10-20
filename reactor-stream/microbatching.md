@@ -1,11 +1,11 @@
 
 # MicroBatching
 
-> Better trade your unused CPU and Memory for your overused Latency
+> 把你未使用的CPU和内存更好的用来交换滥用导致的延时。
 
-> — Klingon Proverb
+> — 克林贡谚语
 
-After one or two reads of the 101 Stream crash intro, you courageous hacker are ready for some quick ROI. In effect dispatching efficiently is far away from the only item to check in the way of millions messages per sec todo list.
+翻阅过一两次101Stream的崩溃说明，勇敢的黑客们准备好一些快速的ROI（投资回报率）。实际上有效的调度与用于检测在每秒处理百万级消息待办事项的唯一标准相距甚远。
 
 A common issue in Distributed Systems lies in the latency cost over indivudual vs buffered IO writes. When such situation arises, MicroBatching or small chunk-processing is the action to group individual data operations. Behind the term Micro hides a more concrete behavior named In Memory. Since the Speed of Light is still a limitation of systems today, main memory remains cheaper to read than disk.
 
