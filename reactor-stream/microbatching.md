@@ -39,7 +39,7 @@ By Jeff Dean:               http://research.google.com/people/jeff/
 Originally by Peter Norvig: http://norvig.com/21-days.html#answers
 ```
 
-Streams are sequences of data, so finding boundaries to cut aggregated buffers is an out-of-the box API.
+Streams是数据序列，因此找到可以切分缓冲区总量的范围是一个非常好的API。
 
 **There are two categories for delimitations:**
 
