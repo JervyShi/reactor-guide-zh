@@ -10,7 +10,7 @@
 分布式系统的一个常见问题是由独立或有缓冲的IO写操作导致的延迟。当这种情况发生时，微批量或小块处理是将独立数据操作归类的方式。术语Micro（微量）的背后隐藏着一个更为具象化的名词：In Memory（内存中）。由于当前系统的速度仍然受限在光速内，主内存的读取依然比磁盘耗费时间更少。
 
 ```
-Latency Comparison Numbers
+延迟消耗比较数据
 
 L1 cache reference                            0.5 ns
 Branch mispredict                             5   ns
