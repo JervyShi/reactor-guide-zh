@@ -1,5 +1,7 @@
 # Reactor Guide 中文翻译
 
+快速阅读：**[Reactor Guide 中文翻译](https://jervyshi.gitbooks.io/reactor-guide-zh/content/)**
+
 作者：Stephane Maldini， Jon Brisbin
 
 2.0.4.RELEASE
@@ -8,7 +10,7 @@
 
 部分翻译参照自[davidwang456](http://www.cnblogs.com/davidwang456)博客中的[reactor官方文档译文](http://www.cnblogs.com/davidwang456/p/4589439.html)系列
 
-持续翻译中，如有错误欢迎提Issue或者PR。已翻译部分可访问[Reactor Guide 中文翻译](https://jervyshi.gitbooks.io/reactor-guide-zh/content/)进行阅读。
+持续翻译中，如有错误欢迎提Issue或者PR。已翻译部分可访问**[Reactor Guide 中文翻译](https://jervyshi.gitbooks.io/reactor-guide-zh/content/)**进行阅读。
 
 Fork me on Github: [reactor-guide-zh](https://github.com/JervyShi/reactor-guide-zh)
 
