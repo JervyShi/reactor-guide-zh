@@ -43,9 +43,9 @@ Streams是数据序列，因此找到可以切分缓冲区总量的范围是一�
 
 **主要有两类定界：**
 
-* Buffer : Concrete boundaries accumulating onNext(T) inside grouped List<T> passed to the child Subscriber.
- * Used best with external API requiring Iterable<T> input argument.
-* Window : Discrete boundaries forwarding onNext(T) into distinct Stream<T> passed to the child Subscriber.
- * Used best with accumulators such as reduce or any subscriber/action reacting to onComplete().
- * Can be combined with flatMap or concatMap which merge back the individual windows in a common Stream<T>
+* Buffer（缓冲区）：依据范围将onNext(T)累加为一组List<T>传入子订阅者。
+ * 最好使用需要把Iterable<T>作为入参的外部API。
+* Window（窗口）：分离边界转发`onNext(T)`为不同`Stream<T>`并传递给子订阅者。
+ * 最好使用如`Reduce`或任何订阅者/行为的积聚者反应到`onComlete()`。
+ * 可以结合`flatMap`或`concatMap`在常规`Stream<T>`的独立窗口中做合并。
 
