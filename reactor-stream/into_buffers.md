@@ -6,9 +6,9 @@
 * 使用JVM API常用的可迭代结构来暴露匹配边界条件的序列。
 * 减少`onNext(T)`信号的数量，例如：`buffer(5)`将会把包含10个元素的序列转换为2个包含5个元素的集合。
 
-> Collecting data incurs an overhead in memory and possibly CPU that should be sized appropriately. Small and timed boundaries are advised to avoid any long lasting aggregates.
+> 组合数据引发本应当适量大小的内存和CPU过载。小巧和定时边界明智的避免长时间的聚集。
 
-> An Environment must be initialized if the timed buffer() signatures are used without providing the Timer argument.
+> 如果定时`buffer()`信号没有提供定时参数，一个环境必须先被初始化。
 
 ```
 long timeout = 100;
