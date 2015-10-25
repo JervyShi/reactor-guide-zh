@@ -1,10 +1,10 @@
 
 ### Into Buffers
 
-Collecting grouped sequences of data T into lists List<T> serves two main purposes:
+收集的数据分组序列`T`到集合`List<T>`主要有两个目的：
 
-* Expose a sequence matching the boundary conditions into an Iterable structure commonly used by JVM APIs
-* Reduce the volume of onNext(T) signals, e.g. buffer(5) will transform a sequence of 10 elements into a sequence of 2 lists (of 5 elements).
+* 使用JVM API常用的可迭代结构来暴露匹配边界条件的序列。
+* 减少`onNext(T)`信号的数量，例如：`buffer(5)`将会把包含10个元素的序列转换为2个包含5个元素的集合。
 
 > Collecting data incurs an overhead in memory and possibly CPU that should be sized appropriately. Small and timed boundaries are advised to avoid any long lasting aggregates.
 
