@@ -53,7 +53,7 @@
    * [Routing data](reactor-bus/routing_data.md)
    * [Publish/Subscribe](reactor-bus/publishsubscribe.md)
    * [Request/Reply](reactor-bus/requestreply.md)
-       * Cancelling a Task
+       * [Cancelling a Task](reactor-bus/cancelling_a_task.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
 
