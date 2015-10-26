@@ -50,6 +50,7 @@
    * [Partitioning](reactor-stream/partitioning.md)
    * [Other API beyond Rx](reactor-stream/other_api_beyond_rx.md)
 * [reactor-bus](reactor-bus/readme.md)
+   * Routing data
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
 
