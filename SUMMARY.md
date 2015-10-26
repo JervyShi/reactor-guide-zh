@@ -52,7 +52,7 @@
 * [reactor-bus](reactor-bus/readme.md)
    * [Routing data](reactor-bus/routing_data.md)
    * [Publish/Subscribe](reactor-bus/publishsubscribe.md)
-   * Request/Reply
+   * [Request/Reply](reactor-bus/requestreply.md)
 * [reactor-net](reactor-net/readme.md)
 * [Extensions](extensions/readme.md)
 
