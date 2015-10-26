@@ -30,10 +30,10 @@ streamBatcher.onNext(666);
 latch.await(2, TimeUnit.SECONDS);
 ```
 
-**Table 10. Chunk processing with Stream buffers (returning Stream<List<T>>):
+**Table 10. 使用Stream buffers进行块处理（返回`Stream<List<T>>`）
 **
 
-| Stream<T> API |
+| `Stream<T>` API |
 |---------------|
 |	Role	|
 |		|
