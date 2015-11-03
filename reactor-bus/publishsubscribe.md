@@ -1,7 +1,6 @@
 # 发布/订阅
 
 使用`EventBus`来发布，使用发布/订阅来响应事件。
-Using an EventBus to publish and respond to events using Publish/Subscribe.
 
 Reactor’s EventBus allows you to register a Consumer to handle events when the notification key matches a certain condition. This assignment is achieved via the Selector. It’s similar to subscribing to a topic, though Reactor’s Selector implementations can match on a variety of critera, from Class<?> type to regexes, to JsonPath expressions. It is a very flexible and powerful abstraction that provides a wide range of possibilities.
 
