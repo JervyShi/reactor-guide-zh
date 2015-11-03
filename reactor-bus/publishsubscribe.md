@@ -2,7 +2,7 @@
 
 使用`EventBus`来发布，使用发布/订阅来响应事件。
 
-Reactor’s EventBus allows you to register a Consumer to handle events when the notification key matches a certain condition. This assignment is achieved via the Selector. It’s similar to subscribing to a topic, though Reactor’s Selector implementations can match on a variety of critera, from Class<?> type to regexes, to JsonPath expressions. It is a very flexible and powerful abstraction that provides a wide range of possibilities.
+Reactor的`EventBus`允许你注册一个消费者用于当满足某些条件的Key收到通知时来处理事件。这个功能是通过`Selector`来做的。它类似于订阅主题，通过`Reactor`中`Selector`的实现来匹配多种判断依据，例如从`Class<?>`类型到正则，到Json路径表达式。这是一种十分灵活和强大的抽象，这种抽象提供了广泛的可能性。
 
 You can register multiple Consumers using the same Selector and multiple Selectors can match a given key. This way it’s easy to do aggregation and broadcasting: you simply subscribe multiple Consumers to the same topic Selector.
 
