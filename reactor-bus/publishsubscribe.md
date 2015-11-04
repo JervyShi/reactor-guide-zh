@@ -8,7 +8,7 @@ Reactor的`EventBus`允许你注册一个消费者用于当满足某些条件的
 
 > 如果你更新到`Reactor`1.1版本，你会发现`Reactor`类已经不存在了。它被更名为`EventBus`，来更准确反馈它在框架中的角色。
 
-**Handling events using a Selector**
+**使用`Selector`来处理事件**
 
 ```
 EventBus bus = EventBus.create(Environment.get());  (1) 
