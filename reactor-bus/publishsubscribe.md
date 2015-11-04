@@ -6,7 +6,7 @@ Reactor的`EventBus`允许你注册一个消费者用于当满足某些条件的
 
 同一个`Selector`可以注册在多个`Consumer`上，多个`Selector`可以匹配同一个key。这种方式很容易做聚集和广播：你可以简单的在同一个主题`Selector`上订阅多个消费者。
 
-> If you’re upgrading from Reactor 1.1, you’ll see that the Reactor class no longer exists. It has been renamed to EventBus to more accurately reflect its role in the framework.
+> 如果你更新到`Reactor`1.1版本，你会发现`Reactor`类已经不存在了。它被更名为`EventBus`，来更准确反馈它在框架中的角色。
 
 **Handling events using a Selector**
 
