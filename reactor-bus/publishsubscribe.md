@@ -4,7 +4,7 @@
 
 Reactor的`EventBus`允许你注册一个消费者用于当满足某些条件的Key收到通知时来处理事件。这个功能是通过`Selector`来做的。它类似于订阅主题，通过`Reactor`中`Selector`的实现来匹配多种判断依据，例如从`Class<?>`类型到正则，到Json路径表达式。这是一种十分灵活和强大的抽象，这种抽象提供了广泛的可能性。
 
-You can register multiple Consumers using the same Selector and multiple Selectors can match a given key. This way it’s easy to do aggregation and broadcasting: you simply subscribe multiple Consumers to the same topic Selector.
+同一个`Selector`可以注册在多个`Consumer`上，多个`Selector`可以匹配同一个key。这种方式很容易做聚集和广播：你可以简单的在同一个主题`Selector`上订阅多个消费者。
 
 > If you’re upgrading from Reactor 1.1, you’ll see that the Reactor class no longer exists. It has been renamed to EventBus to more accurately reflect its role in the framework.
 
