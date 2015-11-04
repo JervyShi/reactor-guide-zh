@@ -24,4 +24,4 @@ bus.notify("topic", Event.wrap("Hello World!"));    (3)
 2. 分配一个消费者用于在`EventBus`被通知指定key匹配到这个`Selector`时调用。
 3. 使用给定的主题向`EventBus`发布一个事件。
 
-> The shorthand static method $ is just a convenience helper that is identical to Selectors.object(). Some people don’t like to use the shorthand methods like $() for ObjectSelector, R() for RegexSelector, T() for ClassSelector, and so forth. The Selectors class has longer method name alternatives for these shorthand versions, which are simply aliases to reduce code noise and make reactive code a little more readable.
+> 简写静态方法`$`只是等同于`Selectors.object()`的一个便利的助手。有些人不喜欢使用简写的方法，例如：`$()`为`ObjectSelector`，`R()`为`ObjectSelector`，`T()`为`ObjectSelector`等等。`Selector`类有与简写对应的长方法名，简写是为了减少无用代码的干扰，并使代码更具可读性。
