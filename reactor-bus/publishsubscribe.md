@@ -21,7 +21,7 @@ bus.on($("topic"), (Event<String> ev) -> {
 bus.notify("topic", Event.wrap("Hello World!"));    (3)
 ```
 1. 通过静态的`Environment`使用默认，共享的`RingBufferDispatcher`来创建`EventBus`。
-2. Assign a Consumer to invoke when the EventBus is notified with a key that matches the Selector.
-3. Publish an Event into the EventBus using the given topic.
+2. 分配一个消费者用于在`EventBus`被通知指定key匹配到这个`Selector`时调用。
+3. 使用给定的主题向`EventBus`发布一个事件。
 
 > The shorthand static method $ is just a convenience helper that is identical to Selectors.object(). Some people don’t like to use the shorthand methods like $() for ObjectSelector, R() for RegexSelector, T() for ClassSelector, and so forth. The Selectors class has longer method name alternatives for these shorthand versions, which are simply aliases to reduce code noise and make reactive code a little more readable.
