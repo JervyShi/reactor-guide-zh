@@ -20,8 +20,7 @@ bus.on($("topic"), (Event<String> ev) -> {
 
 bus.notify("topic", Event.wrap("Hello World!"));    (3)
 ```
-
-1. Create an EventBus using the default, shared RingBufferDispatcher from the static Environment.
+1. 通过静态的`Environment`使用默认，共享的`RingBufferDispatcher`来创建`EventBus`。
 2. Assign a Consumer to invoke when the EventBus is notified with a key that matches the Selector.
 3. Publish an Event into the EventBus using the given topic.
 
