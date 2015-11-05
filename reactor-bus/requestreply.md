@@ -2,9 +2,9 @@
 
 使用`EventBus`来发布和响应请求/应答（Request/Reply）类事件。
 
-It’s often the case that you want to receive a reply from a task executed on an EventBus’s configured **Dispatcher**. Reactor’s EventBus provides for more event handling models beyond the simple publish/subscribe model. You can also register a Function rather than a Consumer and have the EventBus automatically notify a replyTo key of the return value of the Function. Rather than using the `.on()` and `.notify()` methods, you use the `.receive()`, and `.send()` methods.
+常见的例子：你想要从在`EventBus`配置的分发器上执行的一个任务中收到应答。除了简单的发布/订阅模型外，`Reactor`的`EventBus`还提供多种事件处理模型。除了注册消费者之外，你也可以注册函数（`Function`），来让`EventBus`自动通知一个应答给函数返回值指定的键。在使用`.on()`和`.notify()`方法外，你也可以使用`.receive()`和`.send()`方法。
 
-**Request/Reply**
+**请求/应答**
 
 ```
 EventBus bus;
@@ -20,9 +20,9 @@ bus.receive($("job.sink"), ev -> {
 bus.send("job.sink", Event.wrap("Hello World!", "reply.sink"));     (3)
 ```
 
-1. Assign a Consumer to handle all replies indiscriminantly.
-1. Assign a Function to perform work in the Dispatcher thread and return a result.
-1. Publish an Event into the bus using the given replyTo key.
+1. 指定一个消费者来处理所有应答。
+2. 指定一个方法在分发线程中执行任务并返回结果。
+3. 使用给定的应答键在总线中发布一个事件。
 
 If you don’t have a generic topic on which to publish replies, you can combine the request and reply operation into a single call using the `.sendAndReceive(Object, Event<?>, Consumer<Event<?>>)` method. This performs a `.send()` call and invokes the given replyTo callback on the Dispatcher thread when the Functions are invoked.
 
