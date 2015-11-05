@@ -1,4 +1,4 @@
-# Request/Reply
+# 请求/应答
 
 Using an **EventBus** to publish and respond to events using Request/Reply.
 
