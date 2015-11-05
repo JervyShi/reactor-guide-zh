@@ -24,7 +24,7 @@ bus.send("job.sink", Event.wrap("Hello World!", "reply.sink"));     (3)
 2. 指定一个方法在分发线程中执行任务并返回结果。
 3. 使用给定的应答键在总线中发布一个事件。
 
-If you don’t have a generic topic on which to publish replies, you can combine the request and reply operation into a single call using the `.sendAndReceive(Object, Event<?>, Consumer<Event<?>>)` method. This performs a `.send()` call and invokes the given replyTo callback on the Dispatcher thread when the Functions are invoked.
+如果你没有需要发布回复的一般主题时，你可以把请求和应答的操作使用`.sendAndReceive(Object, Event<?>, Consumer<Event<?>>)`方法合并到一次调用中。这将会执行`.send()`调用并在方法被调用时在分发线程中执行给定的应答回调。
 
 **sendAndReceive()**
 
