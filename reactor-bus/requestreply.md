@@ -1,6 +1,6 @@
 # 请求/应答
 
-Using an **EventBus** to publish and respond to events using Request/Reply.
+使用`EventBus`来发布和响应请求/应答（Request/Reply）类事件。
 
 It’s often the case that you want to receive a reply from a task executed on an EventBus’s configured **Dispatcher**. Reactor’s EventBus provides for more event handling models beyond the simple publish/subscribe model. You can also register a Function rather than a Consumer and have the EventBus automatically notify a replyTo key of the return value of the Function. Rather than using the `.on()` and `.notify()` methods, you use the `.receive()`, and `.send()` methods.
 
