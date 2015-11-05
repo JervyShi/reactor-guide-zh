@@ -42,5 +42,5 @@ bus.sendAndReceive(
 );      (2)
 ```
 
-1. Assign a Function to perform work in the Dispatcher thread and return a result.
-1. Publish an Event into the bus and schedule the given replyTo Consumer on the Dispatcher, passing the receive Function’s result as input.
+1. 分配一个方法用于在分发器线程中执行任务并返回结果。
+2. 向总线中发布一个事件，并将方法执行结果作为入参来调度分发器中给定的消费者。
