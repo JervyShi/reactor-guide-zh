@@ -1,3 +1,3 @@
 # Registry
 
-Using a Registry to cache in-memory values.
+使用`Registry`来缓存内存中的值。
