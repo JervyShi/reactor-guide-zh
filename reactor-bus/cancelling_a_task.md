@@ -23,5 +23,4 @@ bus.notify("topic", Event.wrap("Hello World!"));    (3)
 
 > 记住取消注册包含对内部注册机制的原子性访问。在一个拥有大量事件流向消费者的系统中，消费者或者函数在你执行过`.cancel()`方法之后以及注册机还没有抓到机会清理掉缓存及清理掉注册之前，仍然可能看到一些事件。`.cancel()`方法可以被描述为“请求尽可能快的取消”。
 
-> 
-> You’ll notice this behavior right away in test classes where there’s no time delay between the `.on()`, `.notify()`, and `.cancel()` invocations.
+> 你会在测试类中注意到这种行为，当`.on()`, `.notify()` 和 `.cancel()` 的调用之间没有任何事件间隔时。
