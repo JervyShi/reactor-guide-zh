@@ -52,7 +52,7 @@
 * [reactor-bus模块](reactor-bus/readme.md)
    * [路由数据](reactor-bus/routing_data.md)
    * [发布/订阅](reactor-bus/publishsubscribe.md)
-   * [Request/Reply](reactor-bus/requestreply.md)
+   * [请求/应答](reactor-bus/requestreply.md)
        * [Cancelling a Task](reactor-bus/cancelling_a_task.md)
    * [Registry](reactor-bus/registry.md)
 * [reactor-net](reactor-net/readme.md)
