@@ -17,9 +17,9 @@ reg.cancel();   (2)
 bus.notify("topic", Event.wrap("Hello World!"));    (3)
 ```
 
-1. Publish an event to the given topic. Should print `Event.toString()` in the console.
-1. Cancel the Registration to prevent further events from reaching the Consumer.
-1. Nothing should happen as a result of this notification.
+1. 向指定主题发送一个事件，将会在控制台打印`Event.toString()`。
+2. 取消注册，不再接收未来发送到消费者的事件。
+3. 这次通知将会石沉大海。
 
 > Keep in mind that cancelling a Registration involves accessing the internal Registry in an atomic way. In a system in which a large number of events are flowing into Consumers, it’s likely that your Consumer or Function might see some values after you’ve invoked the `.cancel()` method, but before the Registry has had a chance to clear the caches and remove the Registration. The `.cancel()` method could be described as a "request to cancel as soon as possible".
 
