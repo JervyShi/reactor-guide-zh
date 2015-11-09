@@ -1,6 +1,6 @@
-# Cancelling a Task
+# 取消任务
 
-Sometimes you want to cancel a task to cause it to stop responding to event notifications. The registration methods `.on()` and `.receive()` return a Registration object which, if a reference to it is held, can be used later to cancel a Consumer or Function for a given Selector.
+有时你想取消一个任务，使它停止对事件通知的响应。如`.on()`和`.receive()`的注册方法会返回一个注册对象，如果此对象的引用存在，就可以使用它来取消给定`Selector`的消费者或函数。
 
 ```
 EventBus bus;
