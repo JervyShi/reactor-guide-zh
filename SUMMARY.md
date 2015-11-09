@@ -35,7 +35,7 @@
        * [Setting Capacity](reactor-stream/setting_capacity.md)
        * [Functional Composition](reactor-stream/functional_composition.md)
    * [理解线程模型](reactor-stream/understanding_the_threading_model.md)
-   * [MicroBatching](reactor-stream/microbatching.md)
+   * [微批次](reactor-stream/microbatching.md)
        * [Into Buffers](reactor-stream/into_buffers.md)
        * [Into Windows](reactor-stream/into_windows.md)
    * [Backpressure and Overflow](reactor-stream/backpressure_and_overflow.md)
