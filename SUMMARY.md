@@ -51,7 +51,7 @@
    * [Other API beyond Rx](reactor-stream/other_api_beyond_rx.md)
 * [reactor-bus模块](reactor-bus/readme.md)
    * [路由数据](reactor-bus/routing_data.md)
-   * [Publish/Subscribe](reactor-bus/publishsubscribe.md)
+   * [发布/订阅](reactor-bus/publishsubscribe.md)
    * [Request/Reply](reactor-bus/requestreply.md)
        * [Cancelling a Task](reactor-bus/cancelling_a_task.md)
    * [Registry](reactor-bus/registry.md)
